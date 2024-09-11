@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical" android:id="@+id/lyjohnedufirst" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/_72sdp">
+        <TextView android:textSize="8dp" android:textStyle="bold" android:textColor="@color/black" android:id="@+id/completeDate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="2017"/>
+        <TextView android:textSize="8dp" android:textStyle="bold" android:textColor="@color/black" android:id="@+id/instituteName" android:fontFamily="@font/poppins_light" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_2sdp" android:text="Name Of University"/>
+        <TextView android:textSize="8dp" android:textStyle="bold" android:textColor="@color/black" android:id="@+id/digree" android:fontFamily="@font/poppins_light" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Art Creative Soluation"/>
+        <TextView android:textSize="7dp" android:textColor="@color/black" android:id="@+id/degreeDes" android:fontFamily="@font/poppins_light" android:layout_width="match_parent" android:layout_height="match_parent" android:text="Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit  ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
+    </LinearLayout>
+</LinearLayout>

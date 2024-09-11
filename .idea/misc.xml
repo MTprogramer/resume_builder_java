@@ -1,0 +1,79 @@
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/drawable/bgjohnsmithy.xml" value="0.1295" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/drawable/cvmainlogo.xml" value="0.1295" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/drawable/iv_nofilefound.xml" value="0.1295" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/drawable/ivmarkobg.xml" value="0.1295" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/drawable/jhondoebg.xml" value="0.1295" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/drawable/johnsmothyellowone.xml" value="0.1295" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/drawable/jsmithbg.xml" value="0.1295" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/drawable/markobluegb.xml" value="0.1295" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/drawable/smithbgyollow.xml" value="0.1295" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/drawable/user_icon.xml" value="0.1295" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/activity_create_cv.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/activity_cv_viewer.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/activity_edit.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/activity_first_page_main.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/activity_main.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/activity_permission_page_main.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/activity_privacy_terms.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/activity_save.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/activity_splash.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/activity_thankyou_app.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/activity_tomthanos.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/admob_empty_layout.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/ads_dialog.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/ads_fb_banner_native.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/app_bar_drawer.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/content_drawer.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/deletdialog.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/deletdialog_skill.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/dialog_choose_app.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/dialog_update.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/dialog_update_eduction.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/dialog_update_sill.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/edititems.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/educationitems.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/exitdialogcvmaker.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/exitdialogsave.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/experienceitems.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/fragment_education_.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/fragment_experience_.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/fragment_objective_.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/fragment_personal_info_.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/fragment_project.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/fragment_skills_.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/fragment_template_.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/johnsmith.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/lay1.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/lay_andersonwhite.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/lay_jhondoe.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/ly_markoblue.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/ly_markocv.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/ly_markogreentmp.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/nav_header_drawer.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/no_internet.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/popup_exit_dialog.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/popup_new_app_install.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/projectitems.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/sanjaya.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/savedeletedilog.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/savedialog.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/saveitems.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/skillitems.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/smithlyout.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/tomthsn.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/updatedialog_edu.xml" value="0.3546875" />
+        <entry key="..\:/Husen2023-24/Product Selling Apps/Resume CV Maker Builder/Resume CV Maker Builder/ResumeCVMakerBuilder/app/src/main/res/layout/viewtamplets.xml" value="0.3546875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Resume Maker</string>
+
+
+    <string name="applovin_sdk_key">applovin_sdk_key</string>
+
+    <string name="subscribe_KEY1" >com.price.removeads</string>
+
+    <string name="first_check">I understand that sharing of inappropriate content will not be tolerated.</string>
+    <string name="second_check">I confirm that Im 18 years old or above.</string>
+    <string name="clickforprivacy">"By Clicking 'Get Started'. You are agree to above Terms of Use and Privacy Policy. "</string>
+
+
+    <string name="close">Close</string>
+    <string name="about">Job Objective To secure a challenging and rewarding position as Android Developer with an established organization that can utilize my skills and experience. Designed and coded from specifications, analyzed, evaluated, tested and implemented complex software apps.</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="copy_toast_msg">Link copied to clipboard</string>
+    <string name="crop_image_menu_crop">Crop</string>
+    <string name="david_anderson">David \nAnderson</string>
+    <string name="error_a11y_label">Error: invalid</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hinttxt">1. Seeking an entry-level position to begin my career in a high- level professional environment.\n\n 2.Seeking a position which will allow me to utilize my skills in a comptetitive environment.</string>
+    <string name="ic_flip_24">Flip</string>
+    <string name="ic_flip_24_horizontally">Flip horizontally</string>
+    <string name="ic_flip_24_vertically">Flip vertically</string>
+    <string name="ic_rotate_left_24">Rotate counter clockwise</string>
+    <string name="ic_rotate_right_24">Rotate</string>
+    <string name="image_picker_provider_authority_suffix">.imagepicker.provider</string>
+    <string name="marko_kevienars">MARKO KEVIENARS</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_header_subtitle">Get best Resume format for job from one of the best resume templates and download Resume in PDF format.</string>
+    <string name="nav_header_title">RESUME MAKER</string>
+    <string name="open">Open</string>
+    <string name="permission_camera_denied">Camera permission is needed to take a picture. Please allow permission from Settings &gt; Permissions.</string>
+    <string name="pick_image_camera">Camera</string>
+    <string name="pick_image_chooser_title">Select source</string>
+    <string name="pick_image_gallery">Gallery</string>
+    <string name="plshtxt">Get best cv format for job from one of the best cv templates and download CV in PDF format.</string>
+    <string name="project_id">cv-maker-55e68</string>
+    <string name="quran_userasking">Are you sure, you want to exit ?</string>
+    <string name="search_menu_title">Search</string>
+    <string name="searchview_clear_text_content_description">Clear text</string>
+    <string name="searchview_navigation_content_description">Back</string>
+    <string name="side_sheet_accessibility_pane_title">Side Sheet</string>
+    <string name="side_sheet_behavior">com.google.android.material.sidesheet.SideSheetBehavior</string>
+    <string name="title_camera">Camera</string>
+    <string name="title_choose_image_provider">Choose</string>
+    <string name="title_gallery">Gallery</string>
+
+
+</resources>

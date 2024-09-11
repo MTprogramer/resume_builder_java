@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout android:orientation="horizontal" android:id="@+id/temp_view" android:background="#053348" android:layout_width="match_parent" android:layout_height="@dimen/_600sdp">
+        <LinearLayout android:orientation="vertical" android:layout_width="@dimen/_100sdp" android:layout_height="match_parent">
+            <LinearLayout android:layout_width="@dimen/_100sdp" android:layout_height="wrap_content">
+                <LinearLayout android:orientation="vertical" android:layout_width="@dimen/_100sdp" android:layout_height="match_parent">
+                    <de.hdodenhof.circleimageview.CircleImageView android:id="@+id/image_view" android:layout_width="@dimen/_60sdp" android:layout_height="@dimen/_60sdp" android:layout_marginTop="@dimen/_20sdp" android:src="@drawable/imgdvid" android:layout_marginStart="@dimen/_10sdp"/>
+                    <TextView android:textSize="10dp" android:textColor="@color/black" android:fontFamily="@font/poppins_semi_bold" android:background="@drawable/bgforall"  android:layout_width="@dimen/_80sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_5sdp" android:text="Personal Info" android:paddingStart="@dimen/_10sdp"/>
+                    <TextView android:textSize="7dp" android:textColor="@color/white" android:fontFamily="@font/poppins_regular" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="Phone" android:layout_marginStart="@dimen/_10sdp"/>
+                    <TextView android:textSize="7dp" android:textColor="@color/white" android:id="@+id/phoneNumber" android:fontFamily="@font/poppins_regular" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_2sdp" android:text="+0096655121" android:layout_marginStart="@dimen/_10sdp"/>
+                    <TextView android:textSize="7dp" android:textColor="@color/white" android:fontFamily="@font/poppins_regular" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="Email" android:layout_marginStart="@dimen/_10sdp"/>
+                    <TextView android:textSize="7dp" android:textColor="@color/white" android:id="@+id/email" android:fontFamily="@font/poppins_regular" android:layout_width="match_parent" android:layout_height="@dimen/_20sdp" android:layout_marginTop="@dimen/_2sdp" android:text="cvmaker@gmail.com" android:layout_marginStart="@dimen/_10sdp"/>
+                    <TextView android:textSize="7dp" android:textColor="@color/white" android:fontFamily="@font/poppins_regular" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_2sdp" android:text="Address" android:layout_marginStart="@dimen/_10sdp"/>
+                    <TextView android:textSize="7dp" android:textColor="@color/white" android:id="@+id/adress" android:fontFamily="@font/poppins_regular" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_2sdp" android:text="Your Street address/Town/City/Zip" android:layout_marginStart="@dimen/_10sdp"/>
+                    <TextView android:textSize="10dp" android:textColor="@color/black" android:fontFamily="@font/poppins_semi_bold" android:background="@drawable/bgforall"  android:layout_width="@dimen/_80sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_2sdp" android:text="Education" android:paddingStart="@dimen/_20sdp"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        tools:listitem="@layout/education_card_1"
+                        android:id="@+id/education_recycler"/>
+                    <TextView android:textSize="10dp" android:textColor="@color/black" android:fontFamily="@font/poppins_semi_bold" android:background="@drawable/bgforall"  android:layout_width="@dimen/_80sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_5sdp" android:text="Projects" android:paddingStart="@dimen/_20sdp"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/project_card"
+                        android:id="@+id/project_recycler"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_560sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="LUCKY SANJAYA"
+                android:textColor="#ffc905"
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/designation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="WEB DESIGNER"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginStart="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:background="@drawable/objbg"
+                android:orientation="vertical">
+
+                <TextView
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_17sdp"
+
+                    android:text="Objective"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:id="@+id/objective"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_25sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:text="@string/about"
+                    android:textColor="@color/white"
+                    android:textSize="7dp" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:background="@drawable/expobj" android:layout_width="match_parent" android:layout_height="@dimen/_260sdp" android:layout_marginTop="@dimen/_15sdp" android:layout_marginEnd="@dimen/_5sdp">
+
+                <TextView
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="14dp"
+                    android:layout_marginStart="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+
+                    android:text="Experience"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/experience_card_2"
+                    android:id="@+id/experience_recycler"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/skillsobj"
+                android:orientation="vertical">
+
+                <TextView
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="12dp"
+                    android:layout_marginStart="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Skills"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="2"
+                    android:orientation="horizontal"
+                    tools:listitem="@layout/skill_card_2"
+                    android:id="@+id/skills_recyler"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/temp_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_560sdp"
+        android:background="@drawable/johnsmothyellowone"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="@dimen/_110sdp"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="@dimen/_110sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/image_view"
+                        android:layout_width="@dimen/_106sdp"
+                        android:layout_height="@dimen/_147sdp"
+                        android:src="@drawable/ivjhonsmith" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_120sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_15sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:text="PERSONAL INFO"
+                            android:textColor="@color/black"
+                            android:textSize="10dp" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/iviconphone"
+                                android:layout_width="@dimen/_15sdp"
+                                android:layout_height="@dimen/_15sdp"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:src="@drawable/phonetom"
+                                app:layout_constraintLeft_toLeftOf="parent" />
+
+                            <TextView
+                                android:id="@+id/phoneNumber"
+                                android:layout_width="@dimen/_70sdp"
+                                android:fontFamily="@font/poppins_regular"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_3sdp"
+                                android:text="+0096655121"
+                                android:textSize="8dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/iviconphone"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/iviconphone" />
+
+                            <ImageView
+                                android:id="@+id/ivemailicon"
+                                android:layout_width="@dimen/_15sdp"
+                                android:layout_height="@dimen/_15sdp"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:src="@drawable/gmailtom"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/iviconphone" />
+
+                            <TextView
+                                android:id="@+id/email"
+                                android:layout_width="@dimen/_70sdp"
+                                android:fontFamily="@font/poppins_regular"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_3sdp"
+                                android:text="cvmakergmail.com"
+                                android:textSize="7dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/ivemailicon"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/ivemailicon" />
+
+                            <ImageView
+                                android:id="@+id/ivaconadress"
+                                android:layout_width="@dimen/_15sdp"
+                                android:layout_height="@dimen/_15sdp"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:src="@drawable/hometom"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/ivemailicon" />
+
+                            <TextView
+                                android:id="@+id/adress"
+                                android:layout_width="@dimen/_70sdp"
+                                android:fontFamily="@font/poppins_regular"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/_3sdp"
+                                android:text="Your Street address/Town/City/Zip"
+                                android:textSize="7dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/ivaconadress"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/ivaconadress" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="2dp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/ivlineone" />
+
+                    <TextView
+                        android:id="@+id/id_education"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="EDUCATION"
+                        android:textColor="@color/black"
+                        android:textSize="10dp" />
+
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/lyEdujSmithfirst"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="@dimen/_5sdp"-->
+<!--                        android:orientation="vertical"-->
+<!--                        android:visibility="vis-->
+<!--">-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/id_dates_complet_js"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="@dimen/_15sdp"-->
+<!--                            android:text="2014-2016"-->
+<!--                            android:textSize="8dp" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/degreename_id_js"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="@dimen/_15sdp"-->
+<!--                            android:layout_marginTop="@dimen/_5sdp"-->
+<!--                            android:text="Degree Name"-->
+<!--                            android:textSize="8dp" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/universityname_id_js"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="@dimen/_15sdp"-->
+<!--                            android:layout_marginTop="@dimen/_5sdp"-->
+<!--                            android:text="University Name"-->
+<!--                            android:textSize="8dp" />-->
+<!--                    </LinearLayout>-->
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/education_card_7"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:id="@+id/education_recycler"
+                        tools:itemCount="3"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView android:textSize="22dp" android:fontFamily="@font/poppins_bold" android:id="@+id/user_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_30sdp" android:text="JHON SMITH" android:layout_marginStart="@dimen/_15sdp" android:layout_marginEnd="@dimen/_10sdp"/>
+            <TextView android:textSize="12dp" android:id="@+id/designation" android:fontFamily="@font/poppins_regular" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="GRAPHIC DESIGNER" android:layout_marginStart="@dimen/_15sdp" android:layout_marginEnd="@dimen/_10sdp"/>
+            <TextView android:textSize="10dp" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp" android:text="OBJECTIVE" android:layout_marginStart="@dimen/_15sdp"/>
+            <TextView android:textSize="7dp" android:id="@+id/objective" android:fontFamily="@font/poppins_regular" android:layout_width="wrap_content" android:layout_height="@dimen/_50sdp" android:layout_marginTop="@dimen/_5sdp" android:text="@string/about" android:layout_marginStart="@dimen/_15sdp" android:layout_marginEnd="@dimen/_10sdp"/>
+            <View android:background="@drawable/ivthinline" android:layout_width="wrap_content" android:layout_height="2dp" android:layout_marginTop="@dimen/_10sdp" android:layout_marginStart="@dimen/_15sdp" android:layout_marginEnd="@dimen/_10sdp"/>
+            <TextView android:textSize="10dp" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="EXPERIENCE" android:layout_marginStart="@dimen/_15sdp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/experience_card_7"
+                android:id="@+id/experience_recycler"
+                tools:itemCount="3"
+                />
+
+
+            <TextView android:textSize="10dp" android:textColor="@color/black" android:id="@+id/id_projects" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="PROJECTS" android:layout_marginStart="@dimen/_15sdp"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/project_card_2"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:id="@+id/project_recycler"
+                tools:itemCount="3"
+                />
+            <TextView android:textSize="10dp" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp" android:text="SKILLS" android:layout_marginStart="@dimen/_15sdp"/>
+<!--                 <TextView android:textSize="7dp" android:id="@+id/tv_skill1_js" android:layout_width="@dimen/_70sdp" android:layout_height="wrap_content" android:text="Photoshop" app:layout_constraintLeft_toLeftOf="parent"/>&ndash;&gt;-->
+<!--                <SeekBar android:id="@+id/seek_johns1" android:layout_width="@dimen/_80sdp" android:layout_height="@dimen/_5sdp" android:layout_marginTop="@dimen/_5sdp" android:layout_marginEnd="@dimen/_20sdp" android:progressTint="@color/yallow" android:thumbTint="@color/yallow" app:layout_constraintBottom_toBottomOf="@+id/tv_skill1_js" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="@+id/tv_skill1_js"/>-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/skills_card_4"
+                android:id="@+id/skills_recyler"
+                tools:itemCount="3"
+                />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/showbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="show"
+            android:visibility="vis
+" />
+    </LinearLayout>
+</RelativeLayout>

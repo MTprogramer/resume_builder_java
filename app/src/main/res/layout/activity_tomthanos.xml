@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="horizontal" android:id="@+id/ly_toplyout" android:background="#f6f5f5" android:layout_width="match_parent" android:layout_height="@dimen/_100sdp" android:layout_margin="@dimen/_10sdp">
+        <LinearLayout android:layout_width="@dimen/_110sdp" android:layout_height="@dimen/_100sdp">
+            <ImageView android:layout_gravity="center" android:id="@+id/imgprofile_tom" android:background="@drawable/backcricleprof" android:layout_width="@dimen/_70sdp" android:layout_height="@dimen/_70sdp" android:src="@drawable/imgdvid" android:layout_marginStart="@dimen/_10sdp"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="@dimen/_100sdp">
+            <TextView android:textSize="22sp" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp" android:text="Tom Thanos" android:layout_marginStart="@dimen/_10sdp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="UX Designer" android:layout_marginStart="@dimen/_10sdp"/>
+            <TextView android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="objective" android:layout_marginStart="@dimen/_10sdp"/>
+            <TextView android:textSize="10sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt." android:layout_marginStart="@dimen/_10sdp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp" android:layout_below="@+id/ly_toplyout" android:layout_marginStart="@dimen/_10sdp" android:layout_marginEnd="@dimen/_10sdp">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <RelativeLayout android:background="#f6f5f5" android:layout_width="@dimen/_130sdp" android:layout_height="@dimen/_280sdp">
+                <TextView android:textStyle="bold" android:id="@+id/tvinfo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp" android:text="PersonalInfo" android:layout_marginStart="@dimen/_30sdp"/>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ly_personalContct" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@+id/tvinfo">
+                    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp" android:layout_marginStart="@dimen/_15sdp">
+                        <ImageView android:layout_width="@dimen/_15sdp" android:layout_height="@dimen/_15sdp" android:src="@drawable/phoneicon"/>
+                        <ImageView android:layout_width="@dimen/_15sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_2sdp" android:src="@drawable/gmails"/>
+                        <ImageView android:layout_width="@dimen/_15sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_2sdp" android:src="@drawable/home"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+00111333551" android:layout_marginStart="@dimen/_5sdp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="email@gmail.com" android:layout_marginStart="@dimen/_5sdp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="Town/City/Code" android:layout_marginStart="@dimen/_5sdp"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView android:textStyle="bold" android:id="@+id/tvEduction" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp" android:text="Education" android:layout_below="@+id/ly_personalContct" android:layout_marginStart="@dimen/_30sdp"/>
+                <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:layout_marginBottom="@dimen/_10sdp" android:layout_below="@+id/tvEduction" android:layout_marginStart="@dimen/_10sdp" android:layout_marginEnd="@dimen/_10sdp">
+                    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/_10sdp">
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Degree Name"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="University name"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="2018-2019"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:layout_marginStart="@dimen/_10sdp">
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Degree Name"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="University name"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="2019-2020"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:layout_marginStart="@dimen/_10sdp">
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Degree Name"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="University name"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="2019-2020"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout android:id="@+id/rel_ly_projects" android:background="#f6f5f5" android:layout_width="@dimen/_130sdp" android:layout_height="@dimen/_120sdp" android:layout_marginTop="@dimen/_10sdp" android:layout_marginStart="@dimen/_10sdp">
+                <TextView android:textStyle="bold" android:id="@+id/tvproject" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp" android:text="Projects" android:layout_marginStart="@dimen/_30sdp"/>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ly_projectDetail" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@+id/tvproject">
+                    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Housing society " android:layout_marginStart="@dimen/_5sdp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="Housing society" android:layout_marginStart="@dimen/_5sdp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="Housing society" android:layout_marginStart="@dimen/_5sdp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:id="@+id/rel_ly_skills" android:background="#f6f5f5" android:layout_width="@dimen/_130sdp" android:layout_height="@dimen/_120sdp" android:layout_marginStart="@dimen/_10sdp">
+                <TextView android:textStyle="bold" android:id="@+id/tvskills" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp" android:text="Skills" android:layout_marginStart="@dimen/_30sdp"/>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ly_skillDetail" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@+id/tvskills">
+                    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Photoshop" android:layout_marginStart="@dimen/_5sdp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="Illustrator" android:layout_marginStart="@dimen/_5sdp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="Indesign" android:layout_marginStart="@dimen/_5sdp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="Word" android:layout_marginStart="@dimen/_5sdp"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp" android:layout_marginStart="@dimen/_10sdp">
+                        <ImageView android:layout_width="@dimen/_60sdp" android:layout_height="@dimen/_15sdp" android:src="@drawable/bar"/>
+                        <ImageView android:layout_width="@dimen/_60sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_2sdp" android:src="@drawable/bar"/>
+                        <ImageView android:layout_width="@dimen/_60sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_2sdp" android:src="@drawable/bar"/>
+                        <ImageView android:layout_width="@dimen/_60sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_2sdp" android:src="@drawable/bar"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+            <LinearLayout android:orientation="vertical" android:background="#f6f5f5" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp" android:layout_marginBottom="@dimen/_10sdp" android:layout_marginStart="@dimen/_10sdp" android:layout_marginEnd="@dimen/_10sdp">
+                <TextView android:textStyle="bold" android:id="@+id/tvExperience" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp" android:text="Experience" android:layout_below="@+id/ly_personalContct" android:layout_marginStart="@dimen/_30sdp"/>
+                <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:layout_marginStart="@dimen/_10sdp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Organization Name"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Designation"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="joining Date"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="End Date"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Job Description"/>
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:layout_marginStart="@dimen/_10sdp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Organization Name"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Designation"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="joining Date"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="End Date"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Job Description"/>
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:layout_marginStart="@dimen/_10sdp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Organization Name"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Designation"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="joining Date"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="End Date"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Job Description"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

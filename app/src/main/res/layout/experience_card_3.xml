@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout android:orientation="vertical"  android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/_70sdp" android:layout_marginTop="@dimen/_5sdp">
+        <TextView android:textSize="7dp" android:id="@+id/designation" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Senior UX Designer" android:layout_marginStart="@dimen/_10sdp"/>
+        <TextView android:textSize="7dp" android:id="@+id/company_name" android:fontFamily="@font/poppins_medium" android:layout_width="@dimen/_60sdp" android:layout_height="wrap_content" android:text="Company Name" android:layout_marginStart="@dimen/_10sdp"/>
+        <LinearLayout android:orientation="horizontal" android:id="@+id/ly_experience" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/_10sdp">
+            <TextView android:textSize="7dp" android:id="@+id/join_date" android:fontFamily="@font/poppins_regular" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2020"/>
+            <View android:background="@drawable/blackline" android:layout_width="@dimen/_3sdp" android:layout_height="1dp" android:layout_marginTop="@dimen/_4sdp" android:layout_marginStart="@dimen/_3sdp" android:layout_marginEnd="@dimen/_1sdp"/>
+            <TextView android:textSize="7dp" android:id="@+id/end_date" android:fontFamily="@font/poppins_regular" android:layout_width="@dimen/_30sdp" android:layout_height="wrap_content" android:text="2021"/>
+        </LinearLayout>
+        <TextView android:textSize="7dp" android:id="@+id/experience_des" android:fontFamily="@font/poppins_light" android:layout_width="match_parent" android:layout_height="match_parent" android:text="Lorem ipsum dolor  ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporsit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et." android:layout_marginStart="@dimen/_10sdp" android:layout_marginEnd="@dimen/_3sdp"/>
+    </LinearLayout>
+
+</LinearLayout>

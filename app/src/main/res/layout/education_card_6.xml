@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout android:orientation="vertical" android:id="@+id/lyEdusmith1" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:layout_marginStart="@dimen/_10sdp" android:layout_marginEnd="@dimen/_10sdp">
+        <TextView android:textSize="8dp" android:textColor="@color/white" android:id="@+id/completeDate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_1sdp" android:text="2014-2016"/>
+        <TextView android:textSize="7dp" android:textColor="@color/red" android:id="@+id/digree" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Degree Name"/>
+        <TextView android:textSize="7dp" android:textColor="@color/white" android:id="@+id/instituteName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="University Name"/>
+    </LinearLayout>
+
+</LinearLayout>

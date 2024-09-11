@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout android:orientation="vertical" android:id="@+id/lyExpSmithfirst" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">
+        <LinearLayout android:orientation="horizontal" android:id="@+id/ly_experienceone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_1sdp">
+            <TextView android:textSize="7dp" android:textColor="@color/white" android:id="@+id/join_date" android:fontFamily="@font/poppins_semi_bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2018" android:layout_marginStart="@dimen/_10sdp"/>
+            <View android:background="@drawable/whiteline" android:layout_width="@dimen/_3sdp" android:layout_height="1dp" android:layout_marginTop="@dimen/_4sdp" android:layout_marginStart="@dimen/_1sdp" android:layout_marginEnd="@dimen/_1sdp"/>
+            <TextView android:textSize="7dp" android:textColor="@color/white" android:id="@+id/end_date" android:fontFamily="@font/poppins_semi_bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2019"/>
+        </LinearLayout>
+        <TextView android:textSize="7dp" android:textColor="@color/red" android:id="@+id/designation" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Junior UX Designer" android:layout_marginStart="@dimen/_10sdp"/>
+        <TextView android:textSize="7dp" android:textColor="@color/white" android:id="@+id/instituteName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Company Name" android:layout_marginStart="@dimen/_10sdp"/>
+        <TextView android:textSize="7dp" android:textColor="@color/white" android:id="@+id/job_des" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt,ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt" android:layout_marginStart="@dimen/_10sdp" android:layout_marginEnd="@dimen/_1sdp"/>
+    </LinearLayout>
+
+</LinearLayout>

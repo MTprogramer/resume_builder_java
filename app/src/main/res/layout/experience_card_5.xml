@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout android:orientation="vertical" android:id="@+id/lymarkExpdatefirst" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="@dimen/_50sdp">
+        <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/designation" android:layout_width="@dimen/_100sdp" android:fontFamily="@font/poppins_medium" android:layout_height="wrap_content" android:text="Lead Web Designer"/>
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">
+            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/join_date" android:fontFamily="@font/poppins_regular" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2017"/>
+            <View android:background="@drawable/blackline" android:layout_width="@dimen/_3sdp" android:layout_height="1dp" android:layout_marginTop="@dimen/_5sdp"/>
+            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/end_date" android:fontFamily="@font/poppins_regular" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2018"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout android:orientation="horizontal" android:layout_toEndOf="@id/lymarkExpdatefirst" android:id="@+id/lymarkExpdetalfirst" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/_50sdp">
+        <View android:background="@drawable/recview" android:layout_width="@dimen/_3sdp" android:layout_height="@dimen/_35sdp" android:layout_marginStart="@dimen/_2sdp"/>
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/_5sdp">
+            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/company_name" android:fontFamily="@font/poppins_medium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ART CREATIVE SOLUATION" android:singleLine="true"/>
+            <TextView android:textSize="7dp" android:id="@+id/job_des" android:fontFamily="@font/poppins_light" android:layout_width="match_parent" android:layout_height="match_parent" android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.dolor sit amet,ipsum dolor sit amet, consectetur adipiscing elit.dolor sit amet"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

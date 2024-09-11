@@ -1,0 +1,85 @@
+package com.resumemaker.resumecvbuilder;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import java.util.ArrayList;
+
+public class ProjectDBHandler extends SQLiteOpenHelper {
+    private static final String DB_NAME = "projectdb";
+    private static final int DB_VERSION = 1;
+    private static final String ID_COL = "id";
+    private static final String SKILL_FOURTH_COL = "secondprojectUrl";
+    private static final String SKILL_ONE_COL = "projectOneName";
+    private static final String SKILL_THREE_COL = "secondprojectName";
+    private static final String SKILL_TWO_COL = "firstprojectUrl";
+    private static final String TABLE_NAME = "employeeproject";
+
+    public ProjectDBHandler(Context context) {
+        super(context, DB_NAME, (SQLiteDatabase.CursorFactory) null, 1);
+    }
+
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        sQLiteDatabase.execSQL("CREATE TABLE employeeproject (id INTEGER PRIMARY KEY AUTOINCREMENT, projectOneName TEXT,firstprojectUrl TEXT,secondprojectName TEXT,secondprojectUrl TEXT)");
+    }
+
+    public Boolean addNewCourse(String str, String str2, String str3, String str4) {
+        SQLiteDatabase writableDatabase = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(SKILL_ONE_COL, str);
+        contentValues.put(SKILL_TWO_COL, str2);
+        contentValues.put(SKILL_THREE_COL, str3);
+        contentValues.put(SKILL_FOURTH_COL, str4);
+        writableDatabase.insert(TABLE_NAME, (String) null, contentValues);
+        writableDatabase.close();
+        return null;
+    }
+
+    public ArrayList<ProjectRecylerviewModel> readCourses() {
+        Cursor rawQuery = getReadableDatabase().rawQuery("SELECT * FROM employeeproject", (String[]) null);
+        ArrayList<ProjectRecylerviewModel> arrayList = new ArrayList<>();
+        if (rawQuery.moveToFirst()) {
+            do {
+                arrayList.add(new ProjectRecylerviewModel(rawQuery.getString(1), rawQuery.getString(2), rawQuery.getString(3), rawQuery.getString(4)));
+            } while (rawQuery.moveToNext());
+        }
+        rawQuery.close();
+        return arrayList;
+    }
+
+    public void deleteCourse(String str) {
+        SQLiteDatabase writableDatabase = getWritableDatabase();
+        writableDatabase.delete(TABLE_NAME, "projectOneName=?", new String[]{str});
+        writableDatabase.close();
+    }
+
+    public void updateCourse(String str, String str2, String str3, String str4, String str5) {
+        SQLiteDatabase writableDatabase = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(SKILL_ONE_COL, str2);
+        contentValues.put(SKILL_TWO_COL, str3);
+        contentValues.put(SKILL_THREE_COL, str4);
+        contentValues.put(SKILL_FOURTH_COL, str5);
+        writableDatabase.update(TABLE_NAME, contentValues, "projectOneName=?", new String[]{str});
+        writableDatabase.close();
+    }
+
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS employeeproject");
+        onCreate(sQLiteDatabase);
+    }
+
+    /* access modifiers changed from: package-private */
+    public void deleteData() {
+        getWritableDatabase().execSQL("delete from employeeproject");
+    }
+
+    public int getDataCount() {
+        Cursor rawQuery = getReadableDatabase().rawQuery("SELECT  * FROM employeeproject", (String[]) null);
+        int count = rawQuery.getCount();
+        rawQuery.close();
+        return count;
+    }
+}

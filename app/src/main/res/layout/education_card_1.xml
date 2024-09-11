@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical" android:id="@+id/ly_eduone" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/_25sdp">
+        <View android:background="@drawable/whiteline" android:layout_width="@dimen/_22sdp" android:layout_height="2dp" android:layout_marginTop="@dimen/_5sdp"/>
+        <TextView android:textSize="7dp" android:textColor="@color/black1" android:id="@+id/completeDate" android:fontFamily="@font/poppins_regular" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="2014"/>
+        <TextView android:textSize="7dp" android:textColor="@color/black1" android:id="@+id/digree" android:fontFamily="@font/poppins_medium" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="Degree Name"/>
+        <TextView android:textSize="7dp" android:textColor="@color/black1" android:id="@+id/instituteName" android:fontFamily="@font/poppins_medium" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="University Name"/>
+    </LinearLayout>
+</LinearLayout>

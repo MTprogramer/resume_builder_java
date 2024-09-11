@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+    <RelativeLayout android:orientation="horizontal" android:id="@+id/temp_view" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginStart="@dimen/_10sdp" android:layout_marginEnd="@dimen/_5sdp">
+        <LinearLayout android:orientation="horizontal" android:id="@+id/ly_main_thomas" android:background="@drawable/temptwobg" android:layout_width="match_parent" android:layout_height="@dimen/_150sdp">
+            <LinearLayout android:layout_width="@dimen/_100sdp" android:layout_height="@dimen/_120sdp">
+                <de.hdodenhof.circleimageview.CircleImageView android:id="@+id/image_view" android:background="@drawable/eclips" android:layout_width="@dimen/_90sdp" android:layout_height="@dimen/_90sdp" android:layout_marginTop="@dimen/_20sdp" android:src="@drawable/imagetoms" android:layout_marginStart="@dimen/_5sdp" app:civ_border_color="#ffc907" app:civ_border_width="@dimen/_2sdp"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="@dimen/_150sdp">
+                <TextView android:textSize="22dp" android:textColor="@color/black" android:id="@+id/user_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_20sdp" android:text="Tom Thanos" android:layout_marginStart="@dimen/_5sdp" android:fontFamily="@font/poppins_semi_bold"/>
+                <TextView android:id="@+id/designation" android:fontFamily="@font/poppins_regular" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="UX Designer" android:layout_marginStart="@dimen/_5sdp"/>
+                <TextView android:textSize="10dp" android:textColor="@color/black" android:fontFamily="@font/poppins_semi_bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Objective" android:layout_marginStart="@dimen/_5sdp"/>
+                <TextView android:textSize="7dp" android:id="@+id/objective" android:fontFamily="@font/poppins_regular" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_2sdp" android:text="@string/about" android:paddingEnd="@dimen/_3sdp" android:layout_marginStart="@dimen/_5sdp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp" android:layout_below="@+id/ly_main_thomas">
+            <LinearLayout android:orientation="vertical" android:layout_width="@dimen/_100sdp" android:layout_height="wrap_content">
+                <LinearLayout android:orientation="vertical" android:background="@drawable/temptwobg" android:layout_width="@dimen/_100sdp" android:layout_height="wrap_content">
+                    <LinearLayout android:orientation="vertical" android:background="@drawable/temptwobg" android:layout_width="match_parent" android:layout_height="@dimen/_120sdp">
+                        <TextView android:textSize="10dp" android:textColor="@color/black" android:fontFamily="@font/poppins_semi_bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_15sdp" android:text="Contact" android:layout_marginStart="@dimen/_5sdp"/>
+                        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/_5sdp">
+                            <ImageView android:id="@+id/iviconphonetom" android:layout_width="@dimen/_15sdp" android:layout_height="@dimen/_15sdp" android:src="@drawable/phonetom" android:layout_marginStart="@dimen/_5sdp" app:layout_constraintLeft_toLeftOf="parent"/>
+                            <TextView android:textSize="7dp" android:id="@+id/phoneNumber" android:fontFamily="@font/poppins_regular" android:layout_width="@dimen/_70sdp" android:layout_height="wrap_content" android:text="+0096655121" android:layout_marginEnd="@dimen/_2sdp" app:layout_constraintBottom_toBottomOf="@+id/iviconphonetom" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="@+id/iviconphonetom"/>
+                            <ImageView android:id="@+id/iviconemail" android:layout_width="@dimen/_15sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_5sdp" android:src="@drawable/gmailtom" android:layout_marginStart="@dimen/_5sdp" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintTop_toBottomOf="@+id/iviconphonetom"/>
+                            <TextView android:textSize="7dp" android:id="@+id/email" android:fontFamily="@font/poppins_regular" android:layout_width="@dimen/_70sdp" android:layout_height="wrap_content" android:text="cvmaker@gmail.com" android:layout_marginEnd="@dimen/_2sdp" app:layout_constraintBottom_toBottomOf="@+id/iviconemail" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="@+id/iviconemail"/>
+                            <ImageView android:id="@+id/iviconadresstom" android:layout_width="@dimen/_15sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_5sdp" android:src="@drawable/hometom" android:layout_marginStart="@dimen/_5sdp" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintTop_toBottomOf="@+id/iviconemail"/>
+                            <TextView android:textSize="7dp" android:id="@+id/adress" android:fontFamily="@font/poppins_regular" android:layout_width="@dimen/_70sdp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="Your Street address/Town/City/Zip" android:layout_marginEnd="@dimen/_2sdp" app:layout_constraintBottom_toBottomOf="@+id/iviconadresstom" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="@+id/iviconadresstom"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
+                    <TextView android:textSize="10dp" android:textColor="@color/black" android:fontFamily="@font/poppins_semi_bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="Education" android:layout_marginStart="@dimen/_5sdp"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:itemCount="2"
+                        tools:listitem="@layout/education_card_2"
+                        android:id="@+id/education_recycler"/>
+
+                </LinearLayout>
+                <LinearLayout android:layout_width="@dimen/_100sdp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp">
+                    <LinearLayout android:orientation="vertical" android:id="@+id/project_oneName_ids" android:background="@drawable/temptwobg" android:layout_width="match_parent" android:layout_height="match_parent">
+                        <TextView android:textSize="10dp" android:textColor="@color/black" android:fontFamily="@font/poppins_semi_bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp" android:text="Projects" android:layout_marginStart="@dimen/_5sdp"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:listitem="@layout/project_card_2"
+                            android:id="@+id/project_recycler"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/_5sdp">
+                <LinearLayout android:orientation="vertical" android:background="@drawable/temptwobg" android:layout_width="match_parent" android:layout_height="@dimen/_120sdp">
+                    <TextView android:textSize="10dp" android:textColor="@color/black" android:fontFamily="@font/poppins_semi_bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_15sdp" android:text="Skills" android:layout_marginStart="@dimen/_15sdp"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/skills_card_3"
+                        android:id="@+id/skills_recyler"/>
+
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:background="@drawable/temptwobg" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">
+                    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+                        <TextView android:textSize="10dp" android:textColor="@color/black" android:fontFamily="@font/poppins_semi_bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp" android:text="Experience" android:layout_marginStart="@dimen/_10sdp"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:listitem="@layout/experience_card_3"
+                            android:id="@+id/experience_recycler"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

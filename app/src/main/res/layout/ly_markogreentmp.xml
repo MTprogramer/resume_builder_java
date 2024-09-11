@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_560sdp">
+    <RelativeLayout android:orientation="horizontal" android:id="@+id/temp_view" android:background="@drawable/markogreenbg" android:layout_width="match_parent" android:layout_height="@dimen/_560sdp">
+        <LinearLayout android:background="#000000" android:layout_width="@dimen/_110sdp" android:layout_height="@dimen/_560sdp" android:layout_marginTop="@dimen/_10sdp" android:layout_marginBottom="@dimen/_10sdp" android:layout_marginStart="@dimen/_5sdp">
+            <LinearLayout android:orientation="vertical" android:layout_width="@dimen/_110sdp" android:layout_height="wrap_content">
+                <LinearLayout android:layout_width="@dimen/_100sdp" android:layout_height="@dimen/_100sdp">
+                    <ImageView android:scaleType="fitCenter" android:id="@+id/image_view" android:background="@drawable/bgprofile" android:layout_width="@dimen/_80sdp" android:layout_height="@dimen/_80sdp" android:layout_marginTop="@dimen/_10sdp" android:src="@drawable/imagetoms" android:layout_marginStart="@dimen/_10sdp"/>
+                </LinearLayout>
+                <TextView android:textSize="10dp" android:textStyle="bold" android:textColor="@color/white" android:fontFamily="@font/poppins_semi_bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_8sdp" android:text="CONTACT" android:layout_marginStart="@dimen/_5sdp"/>
+                <LinearLayout android:orientation="horizontal" android:layout_width="@dimen/_100sdp" android:layout_height="wrap_content">
+                    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <ImageView android:layout_width="@dimen/_15sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_5sdp" android:src="@drawable/phonemarko" android:layout_marginStart="@dimen/_5sdp"/>
+                        <ImageView android:layout_width="@dimen/_15sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_5sdp" android:src="@drawable/emailmarko" android:layout_marginStart="@dimen/_5sdp"/>
+                        <ImageView android:layout_width="@dimen/_15sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_5sdp" android:src="@drawable/bgadressrarko" android:layout_marginStart="@dimen/_5sdp"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/_5sdp">
+                        <TextView android:textSize="7dp" android:textColor="@color/white" android:id="@+id/phoneNumber" android:fontFamily="@font/poppins_medium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="+9266551215"/>
+                        <TextView android:textSize="7dp" android:textColor="@color/white" android:id="@+id/email" android:fontFamily="@font/poppins_medium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp" android:text="cvmaker@gmail.com"/>
+                        <TextView android:textSize="7dp" android:textColor="@color/white" android:id="@+id/adress" android:fontFamily="@font/poppins_medium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_3sdp" android:text="Your Street address/Town/City/Zip"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView android:textSize="10dp" android:textStyle="bold" android:textColor="@color/white" android:fontFamily="@font/poppins_semi_bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_15sdp" android:text="SKILLS" android:layout_marginStart="@dimen/_5sdp"/>
+<!--                    <TextView android:textSize="8dp" android:textColor="@color/white" android:id="@+id/tv_skill1markogr" android:layout_width="@dimen/_45sdp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="Photoshop" android:layout_marginStart="@dimen/_5sdp" app:layout_constraintLeft_toLeftOf="parent"/>&ndash;&gt;-->
+<!--                    <SeekBar android:id="@+id/seekGreenmarko1" android:layout_width="@dimen/_60sdp" android:layout_height="@dimen/_5sdp" android:layout_marginTop="@dimen/_5sdp" android:progressTint="@color/white" android:thumbTint="@color/white" app:layout_constraintBottom_toBottomOf="@+id/tv_skill1markogr" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="@+id/tv_skill1markogr"/>-->
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="@dimen/_110sdp"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/skills_card_3"
+                    android:id="@+id/skills_recyler"
+                    tools:itemCount="3"
+                    />
+
+
+                <LinearLayout android:orientation="vertical" android:layout_width="@dimen/_100sdp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp">
+                    <TextView android:textSize="10dp" android:textStyle="bold" android:textColor="@color/white" android:fontFamily="@font/poppins_semi_bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PROJECTS" android:layout_marginStart="@dimen/_5sdp"/>
+<!--                    <TextView android:textSize="8dp" android:textColor="@color/white" android:id="@+id/id_keven_nameFirst" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_3sdp" android:text="android studio" android:layout_marginStart="@dimen/_5sdp"/>-->
+<!--                    <TextView android:textSize="7dp" android:textColor="@color/white" android:id="@+id/id_keven_UrlFirst" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="" android:layout_marginStart="@dimen/_5sdp"/>-->
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="@dimen/_110sdp"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/project_card"
+                        android:id="@+id/project_recycler"
+                        tools:itemCount="3"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:background="@drawable/markowhitebg" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp" android:layout_marginBottom="@dimen/_10sdp" android:layout_marginStart="@dimen/_120sdp" android:layout_marginEnd="@dimen/_5sdp">
+            <TextView android:textSize="22dp" android:textStyle="bold" android:textColor="@color/black" android:id="@+id/user_name" android:fontFamily="@font/poppins_semi_bold" android:layout_width="@dimen/_140sdp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp" android:text="@string/marko_kevienars" android:layout_marginStart="@dimen/_35sdp"/>
+            <TextView android:textSize="12dp" android:id="@+id/designation" android:fontFamily="@font/poppins_medium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="GRAPHIC DESIGNER" android:layout_marginStart="@dimen/_35sdp"/>
+            <TextView android:textSize="10dp" android:textColor="@color/black" android:fontFamily="@font/poppins_semi_bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="OJECTIVE" android:layout_marginStart="@dimen/_5sdp"/>
+            <TextView android:textSize="7dp" android:id="@+id/objective" android:fontFamily="@font/poppins_regular" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="@string/about" android:layout_marginStart="@dimen/_5sdp"/>
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_5sdp" android:layout_marginEnd="@dimen/_5sdp">
+                <TextView android:textSize="10dp" android:textColor="@color/black" android:fontFamily="@font/poppins_semi_bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="EXPERIENCE" android:layout_marginStart="@dimen/_5sdp"/>
+                <TextView android:textSize="@dimen/_10sdp" android:textStyle="bold" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="......................................." android:layout_marginStart="@dimen/_5sdp"/>
+            </LinearLayout>
+<!--            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:layout_marginStart="@dimen/_5sdp" android:layout_marginEnd="@dimen/_2sdp">-->
+<!--                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">-->
+<!--                    <LinearLayout android:orientation="vertical" android:id="@+id/lymg_expfirst_date" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="@dimen/_50sdp">-->
+<!--                        <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/designation_markogr1" android:layout_width="@dimen/_70sdp" android:layout_height="wrap_content" android:text="Lead Web Designer"/>-->
+<!--                        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">-->
+<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/jobstartmarkogr1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2017"/>-->
+<!--                            <View android:background="@drawable/blackline" android:layout_width="@dimen/_3sdp" android:layout_height="1dp" android:layout_marginTop="@dimen/_5sdp"/>-->
+<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/jobendmarkogr1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2018"/>-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+<!--                    <LinearLayout android:orientation="vertical" android:id="@+id/lymg_expsecond_date" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="@dimen/_50sdp" android:layout_marginTop="@dimen/_8sdp">-->
+<!--                        <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/designation_markogr2" android:layout_width="@dimen/_70sdp" android:layout_height="wrap_content" android:text="Lead Web Designer"/>-->
+<!--                        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">-->
+<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/jobstartmarkogr2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2017"/>-->
+<!--                            <View android:background="@drawable/blackline" android:layout_width="@dimen/_3sdp" android:layout_height="1dp" android:layout_marginTop="@dimen/_5sdp"/>-->
+<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/jobendmarkogr2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2018"/>-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+<!--                    <LinearLayout android:orientation="vertical" android:id="@+id/lymg_third_date" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="@dimen/_50sdp" android:layout_marginTop="@dimen/_5sdp">-->
+<!--                        <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/designation_markogr3" android:layout_width="@dimen/_70sdp" android:layout_height="wrap_content" android:text="Lead Web Designer"/>-->
+<!--                        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">-->
+<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/jobstartmarkogr3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2017"/>-->
+<!--                            <View android:background="@drawable/blackline" android:layout_width="@dimen/_3sdp" android:layout_height="1dp" android:layout_marginTop="@dimen/_5sdp"/>-->
+<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/jobendmarkogr3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2018"/>-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+<!--                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">-->
+<!--                    <LinearLayout android:orientation="horizontal" android:id="@+id/lymg_firstDetal" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content">-->
+<!--                        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="@dimen/_50sdp" android:layout_marginStart="@dimen/_5sdp">-->
+<!--                            <TextView android:textSize="8dp" android:id="@+id/compnymarkogr1" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="ART CREATIVE SOLUATION"/>-->
+<!--                            <TextView android:textSize="7dp" android:id="@+id/jobdescptionmarkogr1" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/_2sdp" android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur ."/>-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+<!--                    <LinearLayout android:orientation="horizontal" android:id="@+id/lymg_secondtDetal" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content">-->
+<!--                        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="@dimen/_50sdp" android:layout_marginTop="@dimen/_8sdp" android:layout_marginStart="@dimen/_5sdp">-->
+<!--                            <TextView android:textSize="8dp" android:id="@+id/compnymarkogr2" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="ART CREATIVE SOLUATION"/>-->
+<!--                            <TextView android:textSize="7dp" android:id="@+id/jobdescptionmarkogr2" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/_2sdp" android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur."/>-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+<!--                    <LinearLayout android:orientation="horizontal" android:id="@+id/lymg_thirdDetal" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content">-->
+<!--                        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="@dimen/_50sdp" android:layout_marginTop="@dimen/_5sdp" android:layout_marginStart="@dimen/_5sdp">-->
+<!--                            <TextView android:textSize="8dp" android:id="@+id/compnymarkogr3" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="ART CREATIVE SOLUATION"/>-->
+<!--                            <TextView android:textSize="7dp" android:id="@+id/jobdescptionmarkogr3" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/_2sdp" android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur."/>-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                tools:listitem="@layout/education_card_4"
+                android:id="@+id/experience_recycler"
+                tools:itemCount="3"
+                />
+
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_2sdp" android:layout_marginEnd="@dimen/_5sdp">
+                <TextView android:textSize="10dp" android:textColor="@color/black" android:fontFamily="@font/poppins_semi_bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="EDUCATION" android:layout_marginStart="@dimen/_5sdp"/>
+                <TextView android:textSize="@dimen/_8sdp" android:textStyle="bold" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="........................................." android:layout_marginStart="@dimen/_5sdp"/>
+            </LinearLayout>
+<!--            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_3sdp" android:layout_marginStart="@dimen/_5sdp" android:layout_marginEnd="@dimen/_2sdp">-->
+<!--                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">-->
+<!--                    <LinearLayout android:orientation="vertical" android:id="@+id/lyMG_universtnamefirst" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="@dimen/_50sdp">-->
+<!--                        <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/universtynamemarkogr1" android:layout_width="@dimen/_70sdp" android:layout_height="wrap_content" android:text="Name Of University"/>-->
+<!--                        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">-->
+<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/completionmarkoDategr1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2017"/>-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+<!--                    <LinearLayout android:orientation="vertical" android:id="@+id/lyMG_universtnamesecond" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/_50sdp">-->
+<!--                        <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/universtynamemarkogr2" android:layout_width="@dimen/_70sdp" android:layout_height="wrap_content" android:text="Name Of University"/>-->
+<!--                        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">-->
+<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/completionmarkoDategr2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2017"/>-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+<!--                    <LinearLayout android:orientation="vertical" android:id="@+id/lyMG_universtnamethird" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="@dimen/_50sdp">-->
+<!--                        <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/universtynamemarkogr3" android:layout_width="@dimen/_70sdp" android:layout_height="wrap_content" android:text="Name Of University"/>-->
+<!--                        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">-->
+<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/completionmarkoDategr3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2017"/>-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+<!--                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">-->
+<!--                    <LinearLayout android:orientation="horizontal" android:id="@+id/lyMG_eduDetalfirst" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/_50sdp">-->
+<!--                        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:layout_marginStart="@dimen/_3sdp">-->
+<!--                            <TextView android:textSize="8dp" android:id="@+id/degreemarkogr1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ART CREATIVE SOLUATION"/>-->
+<!--                            <TextView android:textSize="7dp" android:id="@+id/degreedescrpmarkogr1" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/_2sdp" android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur."/>-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+<!--                    <LinearLayout android:orientation="horizontal" android:id="@+id/lyMG_eduDetalsecond" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">-->
+<!--                        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="@dimen/_50sdp" android:layout_marginStart="@dimen/_5sdp">-->
+<!--                            <TextView android:textSize="8dp" android:id="@+id/degreemarkogr2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ART CREATIVE SOLUATION"/>-->
+<!--                            <TextView android:textSize="7dp" android:id="@+id/degreedescrpmarkogr2" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/_2sdp" android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur."/>-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+<!--                    <LinearLayout android:orientation="horizontal" android:id="@+id/lyMG_eduDetalthird" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="@dimen/_50sdp" android:layout_marginTop="@dimen/_2sdp">-->
+<!--                        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/_5sdp">-->
+<!--                            <TextView android:textSize="8dp" android:id="@+id/degreemarkogr3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ART CREATIVE SOLUATION"/>-->
+<!--                            <TextView android:textSize="7dp" android:id="@+id/degreedescrpmarkogr3" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/_2sdp" android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur."/>-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_50sdp"
+                tools:listitem="@layout/education_card_4"
+                android:id="@+id/education_recycler"
+                tools:itemCount="3"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical"  android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp" android:layout_marginEnd="@dimen/_10sdp">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/_15sdp">
+            <TextView android:textSize="8dp" android:id="@+id/designation" android:fontFamily="@font/poppins_medium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Senior UX Designer"/>
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">
+                <TextView android:textSize="8dp" android:id="@+id/join_date" android:fontFamily="@font/poppins_regular" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2020"/>
+                <View android:background="@drawable/blackline" android:layout_width="@dimen/_5sdp" android:layout_height="1dp" android:layout_marginTop="@dimen/_7sdp"/>
+                <TextView android:textSize="8dp" android:id="@+id/end_date" android:fontFamily="@font/poppins_regular" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2021"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@+id/ly_experienceDes" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:layout_marginStart="@dimen/_15sdp">
+            <TextView android:textSize="8dp" android:id="@+id/company_name" android:fontFamily="@font/poppins_medium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Company Name"/>
+            <TextView android:textSize="7dp" android:id="@+id/experience_des" android:fontFamily="@font/poppins_light" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod " android:layout_marginEnd="@dimen/_10sdp"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

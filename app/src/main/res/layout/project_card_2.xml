@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_5sdp">
+
+    <TextView android:textSize="8dp" android:id="@+id/projectname" android:fontFamily="@font/poppins_regular" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="Resume Maker" android:layout_marginStart="@dimen/_5sdp"/>
+    <TextView android:textSize="7dp" android:id="@+id/projecturl" android:fontFamily="@font/poppins_regular" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="Resume Maker" android:layout_marginStart="@dimen/_5sdp"/>
+
+
+</LinearLayout>

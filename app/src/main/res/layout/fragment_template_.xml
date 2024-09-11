@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/top1"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:text="Choose Template"
+            android:textSize="@dimen/_20sdp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ly_frameshow"
+        android:layout_below="@+id/top1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_360sdp"
+        android:layout_above="@+id/ly_tampetsscroll">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/lay1"
+                    layout="@layout/lay1" />
+
+                <include
+                    android:id="@+id/lay2"
+                    layout="@layout/tomthsn"
+                    android:visibility="gone" />
+
+                <include
+                    android:id="@+id/lay3"
+                    layout="@layout/ly_markocv"
+                    android:visibility="gone" />
+
+                <include
+                    android:id="@+id/lay4"
+                    layout="@layout/ly_markogreentmp"
+                    android:visibility="gone" />
+
+                <include
+                    android:id="@+id/lay5"
+                    layout="@layout/lay_jhondoe"
+                    android:visibility="gone" />
+
+                <include
+                    android:id="@+id/lay6"
+                    layout="@layout/lay_andersonwhite"
+                    android:visibility="gone" />
+
+                <include
+                    android:id="@+id/lay7"
+                    layout="@layout/ly_markoblue"
+                    android:visibility="gone" />
+
+                <include
+                    android:id="@+id/lay8"
+                    layout="@layout/smithlyout"
+                    android:visibility="gone" />
+
+                <include
+                    android:id="@+id/lay9"
+                    layout="@layout/johnsmith"
+                    android:visibility="gone" />
+
+                <include
+                    android:id="@+id/lay10"
+                    layout="@layout/sanjaya"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ly_tampetsscroll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_55sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:orientation="vertical">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="#e6e6e6">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/tamplet1"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:src="@drawable/maincv" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/tamplets2"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:src="@drawable/cvfirst" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/tamplet3"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:src="@drawable/cvten" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/tamplet4"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:src="@drawable/cvsecond" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/tamplet6"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:src="@drawable/cvthird" />
+
+                <ImageView
+                    android:id="@+id/tamplet7"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:src="@drawable/cvfourth" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/tamplet8"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:src="@drawable/cvsixth" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/tamplet9"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:src="@drawable/cvnine" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/tamplet10"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:src="@drawable/cvseven" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/tamplet11"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:src="@drawable/sanjtamplet" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+</RelativeLayout>
