@@ -50,7 +50,6 @@ public class Template_Fragment extends Fragment {
     Uri imageUri;
     LinearLayout lyTemply;
     protected boolean mIsVisibleToUser;
-    ImageView markogprofile;
     ArrayList<ExperienceRecylerviewModel> models_experince;
     ObjectiveDBHandler objectiveDBHandler;
     ArrayList<Objective_Model> objective_models;
@@ -71,6 +70,7 @@ public class Template_Fragment extends Fragment {
     RelativeLayout rl8;
     RelativeLayout rl9;
     RelativeLayout rl10;
+    View currentRl;
 
     SkillDBHandler skillDBHandler;
     ArrayList<SkillRecylerviewModel> skills_model;
@@ -118,11 +118,13 @@ public class Template_Fragment extends Fragment {
         rl9 =  view.findViewById(R.id.lay9);
         rl10 =  view.findViewById(R.id.lay10);
 
+        currentRl = rl1;
+
 
         if (tempe == 1)
-            init(rl1);
+            settingData();
 
-        adapter = new EducationAdapter(getActivity(), education_model);
+
         tmp1 = view.findViewById(R.id.tamplet1);
         tmp2 = view.findViewById(R.id.tamplets2);
         tmp3 = view.findViewById(R.id.tamplet3);
@@ -159,7 +161,7 @@ public class Template_Fragment extends Fragment {
             case 1:
                 tmp1.setBackgroundResource(R.drawable.bordrsv);
                 rl1.setVisibility(View.VISIBLE);
-                init(rl1);
+                currentRl = rl1;
 
                 //set_non selected
                 tmp2.setBackgroundResource(R.drawable.greyboder);
@@ -186,7 +188,7 @@ public class Template_Fragment extends Fragment {
             case 2:
                 tmp2.setBackgroundResource(R.drawable.bordrsv);
                 rl2.setVisibility(View.VISIBLE);
-                init(rl2);
+                currentRl = rl2;
 
                 //set_non selected
                 tmp1.setBackgroundResource(R.drawable.greyboder);
@@ -213,7 +215,7 @@ public class Template_Fragment extends Fragment {
             case 3:
                 tmp3.setBackgroundResource(R.drawable.bordrsv);
                 rl3.setVisibility(View.VISIBLE);
-                init(rl3);
+                currentRl = rl3;
 
                 //set_non selected
                 tmp1.setBackgroundResource(R.drawable.greyboder);
@@ -240,7 +242,7 @@ public class Template_Fragment extends Fragment {
             case 4:
                 tmp4.setBackgroundResource(R.drawable.bordrsv);
                 rl4.setVisibility(View.VISIBLE);
-                init(rl4);
+                currentRl = rl4;
 
                 //set_non selected
                 tmp1.setBackgroundResource(R.drawable.greyboder);
@@ -267,7 +269,7 @@ public class Template_Fragment extends Fragment {
             case 5:
                 tmp5.setBackgroundResource(R.drawable.bordrsv);
                 rl5.setVisibility(View.VISIBLE);
-                init(rl5);
+                currentRl = rl5;
 
                 //set_non selected
                 tmp1.setBackgroundResource(R.drawable.greyboder);
@@ -294,7 +296,7 @@ public class Template_Fragment extends Fragment {
             case 6:
                 tmp6.setBackgroundResource(R.drawable.bordrsv);
                 rl6.setVisibility(View.VISIBLE);
-                init(rl6);
+                currentRl = rl6;
 
                 //set_non selected
                 tmp1.setBackgroundResource(R.drawable.greyboder);
@@ -321,7 +323,7 @@ public class Template_Fragment extends Fragment {
             case 7:
                 tmp7.setBackgroundResource(R.drawable.bordrsv);
                 rl7.setVisibility(View.VISIBLE);
-                init(rl7);
+                currentRl = rl7;
 
                 //set_non selected
                 tmp1.setBackgroundResource(R.drawable.greyboder);
@@ -348,7 +350,7 @@ public class Template_Fragment extends Fragment {
             case 8:
                 tmp8.setBackgroundResource(R.drawable.bordrsv);
                 rl8.setVisibility(View.VISIBLE);
-                init(rl8);
+                currentRl = rl8;
 
                 //set_non selected
                 tmp1.setBackgroundResource(R.drawable.greyboder);
@@ -375,7 +377,7 @@ public class Template_Fragment extends Fragment {
             case 9:
                 tmp9.setBackgroundResource(R.drawable.bordrsv);
                 rl9.setVisibility(View.VISIBLE);
-                init(rl9);
+                currentRl = rl9;
 
                 //set_non selected
                 tmp1.setBackgroundResource(R.drawable.greyboder);
@@ -402,7 +404,7 @@ public class Template_Fragment extends Fragment {
             case 10:
                 tmp10.setBackgroundResource(R.drawable.bordrsv);
                 rl10.setVisibility(View.VISIBLE);
-                init(rl10);
+                currentRl = rl10;
 
                 //set_non selected
                 tmp1.setBackgroundResource(R.drawable.greyboder);
@@ -425,38 +427,17 @@ public class Template_Fragment extends Fragment {
                 rl7.setVisibility(View.GONE);
                 rl8.setVisibility(View.GONE);
                 rl9.setVisibility(View.GONE);
-
         }
+
+        settingData();
     }
 
-    /* JADX WARNING: type inference failed for: r10v0, types: [com.resumemaker.resumecvbuilder.Template_Fragment]
-      JADX WARNING: type inference failed for: r11v0, types: [android.view.View]
-     JADX WARNING: Unknown variable types count: 1 */
 
-
-    private void init(View view) {
-
-
-        currentView = view.findViewById(R.id.temp_view);
-
-        ImageView imageView = (ImageView) view.findViewById(R.id.image_view);
-        this.markogprofile = imageView;
-        imageView.setImageURI(this.imageUri);
-
-
-        RecyclerView experience_recycler = view.findViewById(R.id.experience_recycler);
-        RecyclerView skills_recyler = view.findViewById(R.id.skills_recyler);
-        RecyclerView project_recycler = view.findViewById(R.id.project_recycler);
-
-
-
-
-
-    }
-
-    /* JADX WARNING: type inference failed for: r11v0, types: [com.resumemaker.resumecvbuilder.Template_Fragment] */
-    /* access modifiers changed from: package-private */
     public void settingData() {
+
+
+        currentView = currentRl.findViewById(R.id.temp_view);
+
         this.models_experince = new ArrayList<>();
         this.personalDetailsModelArrayList = new ArrayList<>();
         this.objective_models = new ArrayList<>();
@@ -475,6 +456,30 @@ public class Template_Fragment extends Fragment {
         this.education_model = this.educationDBHandler.readCourses();
         this.skills_model = this.skillDBHandler.readCourses();
         this.projectRecylerviewModel = this.projectDBHandler.readCourses();
+
+
+
+        ImageView imageView = (ImageView) view.findViewById(R.id.image_view);
+        TextView user_name = currentRl.findViewById(R.id.user_name);
+        TextView user_email = currentRl.findViewById(R.id.email);
+        TextView phoneNumber = currentRl.findViewById(R.id.phoneNumber);
+        TextView objective = currentRl.findViewById(R.id.objective);
+        TextView designation = currentRl.findViewById(R.id.designation);
+        TextView adress = currentRl.findViewById(R.id.adress);
+
+        imageView.setImageURI(this.imageUri);
+        user_name.setText(personalDetailsModelArrayList.get(0).getName());
+        user_email.setText(personalDetailsModelArrayList.get(0).getEmail());
+        phoneNumber.setText(personalDetailsModelArrayList.get(0).getContact());
+        adress.setText(personalDetailsModelArrayList.get(0).getAddress());
+        objective.setText(objective_models.get(0).getCvobective());
+        designation.setText(models_experince.get(0).getDesignations());
+
+
+        RecyclerView experience_recycler = view.findViewById(R.id.experience_recycler);
+        RecyclerView skills_recyler = view.findViewById(R.id.skills_recyler);
+        RecyclerView project_recycler = view.findViewById(R.id.project_recycler);
+
     }
 
     public void onStart() {
@@ -619,10 +624,10 @@ public class Template_Fragment extends Fragment {
         ((WindowManager) getActivity().getSystemService("window")).getDefaultDisplay();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(new DisplayMetrics());
 
-        LinearLayout linearLayout = this.lyTemply;
-        this.bitmap = loadBitmapFromView(linearLayout, linearLayout.getWidth(), this.lyTemply.getHeight());
-        height = this.lyTemply.getHeight();
-        width = this.lyTemply.getWidth();
+        View linearLayout = this.currentView;
+        this.bitmap = loadBitmapFromView(linearLayout, linearLayout.getWidth(), this.currentView.getHeight());
+        height = this.currentView.getHeight();
+        width = this.currentView.getWidth();
 
 
         PdfDocument pdfDocument = new PdfDocument();

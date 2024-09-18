@@ -169,8 +169,7 @@ public class Create_CV extends AppCompatActivity {
         Uri data = intent.getData();
         Log.d("uripic", "check your pics" + data);
         try {
-            PersonalInfo_Fragment.imgcircu
-        larimage.setImageURI(data);
+            PersonalInfo_Fragment.imgcircularimage.setImageURI(data);
             PersonalInfo_Fragment.checkImage = true;
             this.editor.putString("imageURI", data.toString());
             this.editor.commit();

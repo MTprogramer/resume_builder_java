@@ -1,12 +1,11 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
-
+apply plugin: 'com.google.firebase.crashlytics'
 android {
     compileSdkVersion 34
-    buildToolsVersion "30.0.3"
     defaultConfig {
         applicationId "com.resumemaker.resumecvbuilder"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 34
         versionCode 1
         versionName "1.0"
@@ -14,13 +13,13 @@ android {
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
+
+    buildFeatures {
+        buildConfig = false
+    }
+
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-        debug {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -33,65 +32,63 @@ android {
     lintOptions {
         checkReleaseBuilds false
     }
+    namespace 'com.resumemaker.resumecvbuilder'
 
 
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 
-    implementation 'androidx.annotation:annotation:1.3.0'
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.annotation:annotation:1.8.2'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.percentlayout:percentlayout:1.0.0'
     implementation 'androidx.multidex:multidex:2.0.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.4.0'
-    implementation 'androidx.work:work-runtime-ktx:2.7.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.8.5'
+    implementation 'androidx.work:work-runtime-ktx:2.9.1'
 
-    implementation 'com.github.bumptech.glide:glide:4.13.0'
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
 
-    implementation "com.airbnb.android:lottie:3.4.0"
+    implementation 'com.airbnb.android:lottie:6.5.2'
 
-    implementation 'com.facebook.shimmer:shimmer:0.1.0'
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
 //    implementation 'com.wang.avi:library:2.1.3'
 
     implementation 'com.squareup.picasso:picasso:2.71828'
 
-    implementation 'org.jsoup:jsoup:1.13.1'
+    implementation 'org.jsoup:jsoup:1.18.1'
 
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.23'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.29'
 
     //implementation project(':lib')
-    implementation 'com.google.android.gms:play-services-ads:20.5.0'
-    implementation 'com.google.ads.mediation:facebook:6.8.0.0'
-    implementation 'com.facebook.android:audience-network-sdk:6.+'
-    implementation 'com.applovin:applovin-sdk:+'
-    implementation 'com.applovin.mediation:facebook-adapter:+'
+    implementation 'com.google.android.gms:play-services-ads:23.3.0'
+    implementation 'com.google.ads.mediation:facebook:6.17.0.0'
+    implementation 'com.facebook.android:audience-network-sdk:6.18.0'
+    implementation("com.applovin:applovin-sdk:13.0.0")
+    implementation 'com.applovin.mediation:facebook-adapter:6.18.0.0'
 
     //OneSignal Dependencie
-    implementation 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
+    implementation 'com.onesignal:OneSignal:4.8.0' // Or the latest version
 
 
-    //Firebase Dependencie
-    implementation 'com.google.firebase:firebase-analytics:18.0.3'
-    implementation 'com.google.firebase:firebase-database:19.4.0'
-    implementation 'com.google.firebase:firebase-config:19.1.4'
-    implementation 'com.google.firebase:firebase-crashlytics:18.0.0' //crashlytics
-
-    def lifecycle_version = "2.0.0"
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
-    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-runtime:2.8.5"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.8.5"
 
     //InApp Review
-    implementation "com.google.android.play:core:1.8.0"
+    implementation 'com.google.android.play:asset-delivery:2.2.2'
+    implementation 'com.google.android.play:feature-delivery:2.1.0'
+    implementation 'com.google.android.play:app-update:2.1.0'
+
+
 
 
 
