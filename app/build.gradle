@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
+//apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
 apply plugin: 'com.google.firebase.crashlytics'
 android {
     compileSdkVersion 34
@@ -76,7 +76,7 @@ dependencies {
     implementation 'com.applovin.mediation:facebook-adapter:6.18.0.0'
 
     //OneSignal Dependencie
-    implementation 'com.onesignal:OneSignal:4.8.0' // Or the latest version
+//    implementation 'com.onesignal:OneSignal:4.8.0' // Or the latest version
 
 
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"

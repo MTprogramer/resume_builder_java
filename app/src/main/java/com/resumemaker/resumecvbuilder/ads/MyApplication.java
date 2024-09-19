@@ -32,13 +32,10 @@ import com.google.android.gms.ads.appopen.AppOpenAd.AppOpenAdLoadCallback;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
-import com.onesignal.OneSignal;
-
 import java.util.Date;
 
 public class MyApplication extends Application implements Application.ActivityLifecycleCallbacks, LifecycleObserver {
 
-    private static final String ONESIGNAL_APP_ID = "";  // add your onesignal id
 
     public static SharedPreferences sharedPreferencesInApp;
     public static SharedPreferences.Editor editorInApp;
@@ -98,12 +95,6 @@ public class MyApplication extends Application implements Application.ActivityLi
 
 
         context1 = getApplicationContext();
-
-        OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE);
-
-        // OneSignal Initialization
-        OneSignal.initWithContext(this);
-        OneSignal.setAppId(ONESIGNAL_APP_ID);
 
 
         AudienceNetworkAds.initialize(context1);

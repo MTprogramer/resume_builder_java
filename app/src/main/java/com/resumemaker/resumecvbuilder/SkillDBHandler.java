@@ -29,17 +29,11 @@ public class SkillDBHandler extends SQLiteOpenHelper {
         sQLiteDatabase.execSQL("CREATE TABLE employeSkillTest (id INTEGER PRIMARY KEY AUTOINCREMENT, skillOne TEXT,skillTwo TEXT,skillThree TEXT,skillFourth TEXT,skillOnelevel TEXT,skillTwolevel TEXT,skillThreelevel TEXT,skillFourthlevel TEXT)");
     }
 
-    public Boolean addNewCourse(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8) {
+    public Boolean addNewCourse(String str , String skilLevel) {
         SQLiteDatabase writableDatabase = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(SKILL_ONE_COL, str);
-        contentValues.put(SKILL_TWO_COL, str2);
-        contentValues.put(SKILL_THREE_COL, str3);
-        contentValues.put(SKILL_FOURTH_COL, str4);
-        contentValues.put(SKILL_ONE_LEVEL, str5);
-        contentValues.put(SKILL_TWO_LEVEL, str6);
-        contentValues.put(SKILL_THREE_LEVEL, str7);
-        contentValues.put(SKILL_FOURTH_LEVEL, str8);
+        contentValues.put(SKILL_ONE_LEVEL, skilLevel);
         writableDatabase.insert(TABLE_NAME, (String) null, contentValues);
         writableDatabase.close();
         return null;
@@ -50,7 +44,7 @@ public class SkillDBHandler extends SQLiteOpenHelper {
         ArrayList<SkillRecylerviewModel> arrayList = new ArrayList<>();
         if (rawQuery.moveToFirst()) {
             do {
-                arrayList.add(new SkillRecylerviewModel(rawQuery.getString(1), rawQuery.getString(2), rawQuery.getString(3), rawQuery.getString(4), rawQuery.getString(5), rawQuery.getString(6), rawQuery.getString(7), rawQuery.getString(8)));
+//                arrayList.add(new SkillRecylerviewModel(rawQuery.getString(1), rawQuery.getString(2), rawQuery.getString(3), rawQuery.getString(4), rawQuery.getString(5), rawQuery.getString(6), rawQuery.getString(7), rawQuery.getString(8)));
             } while (rawQuery.moveToNext());
         }
         rawQuery.close();

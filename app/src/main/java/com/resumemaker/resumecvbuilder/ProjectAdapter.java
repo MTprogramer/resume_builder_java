@@ -86,14 +86,14 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.MyExpere
                 ProjectAdapter.this.dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
                 ProjectAdapter.this.dialog.setContentView(R.layout.dialog_update_sill);
                 TextView textView = (TextView) ProjectAdapter.this.dialog.findViewById(R.id.id_ok);
-                final EditText editText = (EditText) ProjectAdapter.this.dialog.findViewById(R.id.skill_edt_org);
-                final EditText editText2 = (EditText) ProjectAdapter.this.dialog.findViewById(R.id.skill_edt_design);
-                final EditText editText3 = (EditText) ProjectAdapter.this.dialog.findViewById(R.id.skill_edt_jdate);
-                final EditText editText4 = (EditText) ProjectAdapter.this.dialog.findViewById(R.id.skil_edt_endate);
-                editText.setText(ProjectAdapter.this.modelRecylerview.getProjectNameOne());
-                editText2.setText(ProjectAdapter.this.modelRecylerview.getProjectOneUrl());
-                editText3.setText(ProjectAdapter.this.modelRecylerview.getProjectNameTwo());
-                editText4.setText(ProjectAdapter.this.modelRecylerview.getProjectTwoUrl());
+//                final EditText editText = (EditText) ProjectAdapter.this.dialog.findViewById(R.id.skill_edt_org);
+//                final EditText editText2 = (EditText) ProjectAdapter.this.dialog.findViewById(R.id.skill_edt_design);
+//                final EditText editText3 = (EditText) ProjectAdapter.this.dialog.findViewById(R.id.skill_edt_jdate);
+//                final EditText editText4 = (EditText) ProjectAdapter.this.dialog.findViewById(R.id.skil_edt_endate);
+//                editText.setText(ProjectAdapter.this.modelRecylerview.getProjectNameOne());
+//                editText2.setText(ProjectAdapter.this.modelRecylerview.getProjectOneUrl());
+//                editText3.setText(ProjectAdapter.this.modelRecylerview.getProjectNameTwo());
+//                editText4.setText(ProjectAdapter.this.modelRecylerview.getProjectTwoUrl());
                 TextView textView2 = (TextView) ProjectAdapter.this.dialog.findViewById(R.id.id_cancel);
                 ((LinearLayout) ProjectAdapter.this.dialog.findViewById(R.id.lay_ok)).setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -105,12 +105,12 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.MyExpere
                     public void onClick(View view) {
                         Toast.makeText(ProjectAdapter.this.mContext, "updating yor data", 0).show();
                         ProjectAdapter.this.projectDBHandler = new ProjectDBHandler(view.getContext());
-                        String obj = editText.getText().toString();
-                        String obj2 = editText2.getText().toString();
-                        String obj3 = editText3.getText().toString();
-                        String obj4 = editText4.getText().toString();
-                        ProjectAdapter.this.projectDBHandler.updateCourse(myExperenceViewHOlder.txt_skillone.getText().toString(), obj, obj2, obj3, obj4);
-                        ProjectAdapter.list.set(i, new ProjectRecylerviewModel(obj, obj2, obj3, obj4));
+//                        String obj = editText.getText().toString();
+//                        String obj2 = editText2.getText().toString();
+//                        String obj3 = editText3.getText().toString();
+//                        String obj4 = editText4.getText().toString();
+//                        ProjectAdapter.this.projectDBHandler.updateCourse(myExperenceViewHOlder.txt_skillone.getText().toString(), obj, obj2, obj3, obj4);
+//                        ProjectAdapter.list.set(i, new ProjectRecylerviewModel(obj, obj2, obj3, obj4));
                         ProjectAdapter.this.notifyItemChanged(i);
                         ProjectAdapter.this.notifyDataSetChanged();
                         ProjectAdapter.this.dialog.dismiss();

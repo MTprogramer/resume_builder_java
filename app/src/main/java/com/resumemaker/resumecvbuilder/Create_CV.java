@@ -21,12 +21,11 @@ import java.util.Iterator;
 
 public class Create_CV extends AppCompatActivity {
     private static final int PERMISSION_REQUEST_CODE = 200;
-    public static ImageView imgSave = null;
+    public ImageView imgSave = null;
     public static boolean isFilled = false;
-    public static ImageView nextTabImg;
+    public ImageView nextTabImg;
     public static CustomViewPager viewPager;
     SharedPreferences.Editor editor;
-    int iNewPosition;
     
     ObjectCallback objectCallback;
     Objective_Fragment objective_fragment;
@@ -62,12 +61,11 @@ public class Create_CV extends AppCompatActivity {
         nextTabImg = (ImageView) findViewById(R.id.img_next1);
         imgSave = (ImageView) findViewById(R.id.img_save);
         this.objective_fragment = new Objective_Fragment();
-        CustomViewPager customViewPager = (CustomViewPager) findViewById(R.id.myDialogViewPager);
-        viewPager = customViewPager;
-        customViewPager.setSwipeEnabled(false);
-        ViewPagerAdapter viewPagerAdapter2 = new ViewPagerAdapter(getSupportFragmentManager());
-        this.viewPagerAdapter = viewPagerAdapter2;
-        viewPager.setAdapter(viewPagerAdapter2);
+        viewPager = (CustomViewPager) findViewById(R.id.myDialogViewPager);
+        viewPager.setSwipeEnabled(false);
+        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(viewPagerAdapter);
+
         this.tabLayout = (TabLayout) findViewById(R.id.tablayout1);
         imgSave.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -78,7 +76,7 @@ public class Create_CV extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     Create_CV create_CV = Create_CV.this;
-                    create_CV.getInfo(create_CV.iNewPosition);
+                    create_CV.getInfo();
                 } catch (Exception e) {
                     e.printStackTrace();
                     Log.d("tabselect", "onClick: " + e.getMessage());
@@ -95,41 +93,41 @@ public class Create_CV extends AppCompatActivity {
 
             public void onTabSelected(TabLayout.Tab tab) {
                 int position = tab.getPosition();
+                Log.d("tabselect", "onClick: " + position);
                 if (position == 0) {
-                    Create_CV.nextTabImg.setVisibility(0);
-                    Create_CV.imgSave.setVisibility(8);
-                    Create_CV.nextTabImg.setImageResource(R.drawable.next_btn);
+                    nextTabImg.setVisibility(0);
+                    imgSave.setVisibility(8);
+                    nextTabImg.setImageResource(R.drawable.next_btn);
                 } else if (position == 1) {
-                    Create_CV.nextTabImg.setVisibility(0);
-                    Create_CV.imgSave.setVisibility(8);
-                    Create_CV.nextTabImg.setImageResource(R.drawable.next_btn);
+                    nextTabImg.setVisibility(0);
+                    imgSave.setVisibility(8);
+                    nextTabImg.setImageResource(R.drawable.next_btn);
                 } else if (position == 2) {
-                    Create_CV.nextTabImg.setVisibility(0);
-                    Create_CV.imgSave.setVisibility(8);
-                    Create_CV.nextTabImg.setImageResource(R.drawable.next_btn);
+                    nextTabImg.setVisibility(0);
+                    imgSave.setVisibility(8);
+                    nextTabImg.setImageResource(R.drawable.next_btn);
                 } else if (position == 3) {
-                    Create_CV.nextTabImg.setVisibility(0);
-                    Create_CV.imgSave.setVisibility(8);
-                    Create_CV.nextTabImg.setImageResource(R.drawable.next_btn);
+                    nextTabImg.setVisibility(0);
+                    imgSave.setVisibility(8);
+                    nextTabImg.setImageResource(R.drawable.next_btn);
                 } else if (position == 4) {
-                    Create_CV.nextTabImg.setVisibility(0);
-                    Create_CV.imgSave.setVisibility(8);
-                    Create_CV.nextTabImg.setImageResource(R.drawable.next_btn);
+                    nextTabImg.setVisibility(0);
+                    imgSave.setVisibility(8);
+                    nextTabImg.setImageResource(R.drawable.next_btn);
                 } else if (position == 5) {
-                    Create_CV.nextTabImg.setVisibility(0);
-                    Create_CV.imgSave.setVisibility(8);
-                    Create_CV.nextTabImg.setImageResource(R.drawable.next_btn);
+                    nextTabImg.setVisibility(0);
+                    imgSave.setVisibility(8);
+                    nextTabImg.setImageResource(R.drawable.next_btn);
                 } else if (position == 6) {
-                    Create_CV.imgSave.setVisibility(0);
-                    Create_CV.nextTabImg.setVisibility(8);
-                    Create_CV.nextTabImg.setImageResource(R.drawable.savebtn);
+                    imgSave.setVisibility(0);
+                    nextTabImg.setVisibility(8);
+                    nextTabImg.setImageResource(R.drawable.savebtn);
                 }
-                Log.d("mytab", "tab" + Create_CV.this.iNewPosition);
             }
         });
     }
 
-    public void getInfo(int i) {
+    public void getInfo() {
         try {
             int selectedTabPosition = this.tabLayout.getSelectedTabPosition() + 1;
             if (selectedTabPosition == 1) {
@@ -155,14 +153,14 @@ public class Create_CV extends AppCompatActivity {
         }
     }
 
-    private void setUntouchableTab() {
-        this.tabLayout.setupWithViewPager(viewPager, true);
-        this.tabLayout.clearOnTabSelectedListeners();
-        Iterator it = this.tabLayout.getTouchables().iterator();
-        while (it.hasNext()) {
-            ((View) it.next()).setEnabled(false);
-        }
-    }
+//    private void setUntouchableTab() {
+//        this.tabLayout.setupWithViewPager(viewPager, true);
+//        this.tabLayout.clearOnTabSelectedListeners();
+//        Iterator it = this.tabLayout.getTouchables().iterator();
+//        while (it.hasNext()) {
+//            ((View) it.next()).setEnabled(false);
+//        }
+//    }
 
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);

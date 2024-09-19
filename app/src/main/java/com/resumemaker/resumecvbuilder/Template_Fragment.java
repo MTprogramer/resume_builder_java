@@ -67,7 +67,7 @@ public class Template_Fragment extends Fragment {
     RelativeLayout rl5;
     RelativeLayout rl6;
     RelativeLayout rl7;
-    RelativeLayout rl8;
+    LinearLayout rl8;
     RelativeLayout rl9;
     RelativeLayout rl10;
     View currentRl;
@@ -152,284 +152,78 @@ public class Template_Fragment extends Fragment {
         return this.view;
     }
 
-    private void manageClickedData(int number)
-    {
+    private void manageClickedData(int number) {
         tempe = number;
+        // Reset all buttons and layouts to non-selected and invisible
+        resetSelection();
 
-        switch (number)
-        {
+        switch (number) {
             case 1:
-                tmp1.setBackgroundResource(R.drawable.bordrsv);
-                rl1.setVisibility(View.VISIBLE);
-                currentRl = rl1;
-
-                //set_non selected
-                tmp2.setBackgroundResource(R.drawable.greyboder);
-                tmp3.setBackgroundResource(R.drawable.greyboder);
-                tmp4.setBackgroundResource(R.drawable.greyboder);
-                tmp5.setBackgroundResource(R.drawable.greyboder);
-                tmp6.setBackgroundResource(R.drawable.greyboder);
-                tmp7.setBackgroundResource(R.drawable.greyboder);
-                tmp8.setBackgroundResource(R.drawable.greyboder);
-                tmp9.setBackgroundResource(R.drawable.greyboder);
-                tmp10.setBackgroundResource(R.drawable.greyboder);
-
-                //set Invisibility
-                rl2.setVisibility(View.GONE);
-                rl3.setVisibility(View.GONE);
-                rl4.setVisibility(View.GONE);
-                rl5.setVisibility(View.GONE);
-                rl6.setVisibility(View.GONE);
-                rl7.setVisibility(View.GONE);
-                rl8.setVisibility(View.GONE);
-                rl9.setVisibility(View.GONE);
-                rl10.setVisibility(View.GONE);
-
+                setSelected(tmp1, rl1);
+                break;
             case 2:
-                tmp2.setBackgroundResource(R.drawable.bordrsv);
-                rl2.setVisibility(View.VISIBLE);
-                currentRl = rl2;
-
-                //set_non selected
-                tmp1.setBackgroundResource(R.drawable.greyboder);
-                tmp3.setBackgroundResource(R.drawable.greyboder);
-                tmp4.setBackgroundResource(R.drawable.greyboder);
-                tmp5.setBackgroundResource(R.drawable.greyboder);
-                tmp6.setBackgroundResource(R.drawable.greyboder);
-                tmp7.setBackgroundResource(R.drawable.greyboder);
-                tmp8.setBackgroundResource(R.drawable.greyboder);
-                tmp9.setBackgroundResource(R.drawable.greyboder);
-                tmp10.setBackgroundResource(R.drawable.greyboder);
-
-                //set Invisibility
-                rl1.setVisibility(View.GONE);
-                rl3.setVisibility(View.GONE);
-                rl4.setVisibility(View.GONE);
-                rl5.setVisibility(View.GONE);
-                rl6.setVisibility(View.GONE);
-                rl7.setVisibility(View.GONE);
-                rl8.setVisibility(View.GONE);
-                rl9.setVisibility(View.GONE);
-                rl10.setVisibility(View.GONE);
-
+                setSelected(tmp2, rl2);
+                break;
             case 3:
-                tmp3.setBackgroundResource(R.drawable.bordrsv);
-                rl3.setVisibility(View.VISIBLE);
-                currentRl = rl3;
-
-                //set_non selected
-                tmp1.setBackgroundResource(R.drawable.greyboder);
-                tmp2.setBackgroundResource(R.drawable.greyboder);
-                tmp4.setBackgroundResource(R.drawable.greyboder);
-                tmp5.setBackgroundResource(R.drawable.greyboder);
-                tmp6.setBackgroundResource(R.drawable.greyboder);
-                tmp7.setBackgroundResource(R.drawable.greyboder);
-                tmp8.setBackgroundResource(R.drawable.greyboder);
-                tmp9.setBackgroundResource(R.drawable.greyboder);
-                tmp10.setBackgroundResource(R.drawable.greyboder);
-
-                //set Invisibility
-                rl1.setVisibility(View.GONE);
-                rl2.setVisibility(View.GONE);
-                rl4.setVisibility(View.GONE);
-                rl5.setVisibility(View.GONE);
-                rl6.setVisibility(View.GONE);
-                rl7.setVisibility(View.GONE);
-                rl8.setVisibility(View.GONE);
-                rl9.setVisibility(View.GONE);
-                rl10.setVisibility(View.GONE);
-
+                setSelected(tmp3, rl3);
+                break;
             case 4:
-                tmp4.setBackgroundResource(R.drawable.bordrsv);
-                rl4.setVisibility(View.VISIBLE);
-                currentRl = rl4;
-
-                //set_non selected
-                tmp1.setBackgroundResource(R.drawable.greyboder);
-                tmp2.setBackgroundResource(R.drawable.greyboder);
-                tmp3.setBackgroundResource(R.drawable.greyboder);
-                tmp5.setBackgroundResource(R.drawable.greyboder);
-                tmp6.setBackgroundResource(R.drawable.greyboder);
-                tmp7.setBackgroundResource(R.drawable.greyboder);
-                tmp8.setBackgroundResource(R.drawable.greyboder);
-                tmp9.setBackgroundResource(R.drawable.greyboder);
-                tmp10.setBackgroundResource(R.drawable.greyboder);
-
-                //set Invisibility
-                rl1.setVisibility(View.GONE);
-                rl2.setVisibility(View.GONE);
-                rl3.setVisibility(View.GONE);
-                rl5.setVisibility(View.GONE);
-                rl6.setVisibility(View.GONE);
-                rl7.setVisibility(View.GONE);
-                rl8.setVisibility(View.GONE);
-                rl9.setVisibility(View.GONE);
-                rl10.setVisibility(View.GONE);
-
+                setSelected(tmp4, rl4);
+                break;
             case 5:
-                tmp5.setBackgroundResource(R.drawable.bordrsv);
-                rl5.setVisibility(View.VISIBLE);
-                currentRl = rl5;
-
-                //set_non selected
-                tmp1.setBackgroundResource(R.drawable.greyboder);
-                tmp2.setBackgroundResource(R.drawable.greyboder);
-                tmp3.setBackgroundResource(R.drawable.greyboder);
-                tmp4.setBackgroundResource(R.drawable.greyboder);
-                tmp6.setBackgroundResource(R.drawable.greyboder);
-                tmp7.setBackgroundResource(R.drawable.greyboder);
-                tmp8.setBackgroundResource(R.drawable.greyboder);
-                tmp9.setBackgroundResource(R.drawable.greyboder);
-                tmp10.setBackgroundResource(R.drawable.greyboder);
-
-                //set Invisibility
-                rl1.setVisibility(View.GONE);
-                rl2.setVisibility(View.GONE);
-                rl3.setVisibility(View.GONE);
-                rl4.setVisibility(View.GONE);
-                rl6.setVisibility(View.GONE);
-                rl7.setVisibility(View.GONE);
-                rl8.setVisibility(View.GONE);
-                rl9.setVisibility(View.GONE);
-                rl10.setVisibility(View.GONE);
-
+                setSelected(tmp5, rl5);
+                break;
             case 6:
-                tmp6.setBackgroundResource(R.drawable.bordrsv);
-                rl6.setVisibility(View.VISIBLE);
-                currentRl = rl6;
-
-                //set_non selected
-                tmp1.setBackgroundResource(R.drawable.greyboder);
-                tmp2.setBackgroundResource(R.drawable.greyboder);
-                tmp3.setBackgroundResource(R.drawable.greyboder);
-                tmp4.setBackgroundResource(R.drawable.greyboder);
-                tmp5.setBackgroundResource(R.drawable.greyboder);
-                tmp7.setBackgroundResource(R.drawable.greyboder);
-                tmp8.setBackgroundResource(R.drawable.greyboder);
-                tmp9.setBackgroundResource(R.drawable.greyboder);
-                tmp10.setBackgroundResource(R.drawable.greyboder);
-
-                //set Invisibility
-                rl1.setVisibility(View.GONE);
-                rl2.setVisibility(View.GONE);
-                rl3.setVisibility(View.GONE);
-                rl4.setVisibility(View.GONE);
-                rl5.setVisibility(View.GONE);
-                rl7.setVisibility(View.GONE);
-                rl8.setVisibility(View.GONE);
-                rl9.setVisibility(View.GONE);
-                rl10.setVisibility(View.GONE);
-
+                setSelected(tmp6, rl6);
+                break;
             case 7:
-                tmp7.setBackgroundResource(R.drawable.bordrsv);
-                rl7.setVisibility(View.VISIBLE);
-                currentRl = rl7;
-
-                //set_non selected
-                tmp1.setBackgroundResource(R.drawable.greyboder);
-                tmp2.setBackgroundResource(R.drawable.greyboder);
-                tmp3.setBackgroundResource(R.drawable.greyboder);
-                tmp4.setBackgroundResource(R.drawable.greyboder);
-                tmp5.setBackgroundResource(R.drawable.greyboder);
-                tmp6.setBackgroundResource(R.drawable.greyboder);
-                tmp8.setBackgroundResource(R.drawable.greyboder);
-                tmp9.setBackgroundResource(R.drawable.greyboder);
-                tmp10.setBackgroundResource(R.drawable.greyboder);
-
-                //set Invisibility
-                rl1.setVisibility(View.GONE);
-                rl2.setVisibility(View.GONE);
-                rl3.setVisibility(View.GONE);
-                rl4.setVisibility(View.GONE);
-                rl5.setVisibility(View.GONE);
-                rl6.setVisibility(View.GONE);
-                rl8.setVisibility(View.GONE);
-                rl9.setVisibility(View.GONE);
-                rl10.setVisibility(View.GONE);
-
+                setSelected(tmp7, rl7);
+                break;
             case 8:
-                tmp8.setBackgroundResource(R.drawable.bordrsv);
-                rl8.setVisibility(View.VISIBLE);
-                currentRl = rl8;
-
-                //set_non selected
-                tmp1.setBackgroundResource(R.drawable.greyboder);
-                tmp2.setBackgroundResource(R.drawable.greyboder);
-                tmp3.setBackgroundResource(R.drawable.greyboder);
-                tmp4.setBackgroundResource(R.drawable.greyboder);
-                tmp5.setBackgroundResource(R.drawable.greyboder);
-                tmp6.setBackgroundResource(R.drawable.greyboder);
-                tmp7.setBackgroundResource(R.drawable.greyboder);
-                tmp9.setBackgroundResource(R.drawable.greyboder);
-                tmp10.setBackgroundResource(R.drawable.greyboder);
-
-                //set Invisibility
-                rl1.setVisibility(View.GONE);
-                rl2.setVisibility(View.GONE);
-                rl3.setVisibility(View.GONE);
-                rl4.setVisibility(View.GONE);
-                rl5.setVisibility(View.GONE);
-                rl6.setVisibility(View.GONE);
-                rl7.setVisibility(View.GONE);
-                rl9.setVisibility(View.GONE);
-                rl10.setVisibility(View.GONE);
-
+                setSelected(tmp8, rl8);
+                break;
             case 9:
-                tmp9.setBackgroundResource(R.drawable.bordrsv);
-                rl9.setVisibility(View.VISIBLE);
-                currentRl = rl9;
-
-                //set_non selected
-                tmp1.setBackgroundResource(R.drawable.greyboder);
-                tmp2.setBackgroundResource(R.drawable.greyboder);
-                tmp3.setBackgroundResource(R.drawable.greyboder);
-                tmp4.setBackgroundResource(R.drawable.greyboder);
-                tmp5.setBackgroundResource(R.drawable.greyboder);
-                tmp6.setBackgroundResource(R.drawable.greyboder);
-                tmp7.setBackgroundResource(R.drawable.greyboder);
-                tmp8.setBackgroundResource(R.drawable.greyboder);
-                tmp10.setBackgroundResource(R.drawable.greyboder);
-
-                //set Invisibility
-                rl1.setVisibility(View.GONE);
-                rl2.setVisibility(View.GONE);
-                rl3.setVisibility(View.GONE);
-                rl4.setVisibility(View.GONE);
-                rl5.setVisibility(View.GONE);
-                rl6.setVisibility(View.GONE);
-                rl7.setVisibility(View.GONE);
-                rl8.setVisibility(View.GONE);
-                rl10.setVisibility(View.GONE);
-
+                setSelected(tmp9, rl9);
+                break;
             case 10:
-                tmp10.setBackgroundResource(R.drawable.bordrsv);
-                rl10.setVisibility(View.VISIBLE);
-                currentRl = rl10;
-
-                //set_non selected
-                tmp1.setBackgroundResource(R.drawable.greyboder);
-                tmp2.setBackgroundResource(R.drawable.greyboder);
-                tmp3.setBackgroundResource(R.drawable.greyboder);
-                tmp4.setBackgroundResource(R.drawable.greyboder);
-                tmp5.setBackgroundResource(R.drawable.greyboder);
-                tmp6.setBackgroundResource(R.drawable.greyboder);
-                tmp7.setBackgroundResource(R.drawable.greyboder);
-                tmp8.setBackgroundResource(R.drawable.greyboder);
-                tmp9.setBackgroundResource(R.drawable.greyboder);
-
-                //set Invisibility
-                rl1.setVisibility(View.GONE);
-                rl2.setVisibility(View.GONE);
-                rl3.setVisibility(View.GONE);
-                rl4.setVisibility(View.GONE);
-                rl5.setVisibility(View.GONE);
-                rl6.setVisibility(View.GONE);
-                rl7.setVisibility(View.GONE);
-                rl8.setVisibility(View.GONE);
-                rl9.setVisibility(View.GONE);
+                setSelected(tmp10, rl10);
+                break;
         }
 
         settingData();
+    }
+
+    // Helper method to reset all buttons and layouts
+    private void resetSelection() {
+        tmp1.setBackgroundResource(R.drawable.greyboder);
+        tmp2.setBackgroundResource(R.drawable.greyboder);
+        tmp3.setBackgroundResource(R.drawable.greyboder);
+        tmp4.setBackgroundResource(R.drawable.greyboder);
+        tmp5.setBackgroundResource(R.drawable.greyboder);
+        tmp6.setBackgroundResource(R.drawable.greyboder);
+        tmp7.setBackgroundResource(R.drawable.greyboder);
+        tmp8.setBackgroundResource(R.drawable.greyboder);
+        tmp9.setBackgroundResource(R.drawable.greyboder);
+        tmp10.setBackgroundResource(R.drawable.greyboder);
+
+        rl1.setVisibility(View.GONE);
+        rl2.setVisibility(View.GONE);
+        rl3.setVisibility(View.GONE);
+        rl4.setVisibility(View.GONE);
+        rl5.setVisibility(View.GONE);
+        rl6.setVisibility(View.GONE);
+        rl7.setVisibility(View.GONE);
+        rl8.setVisibility(View.GONE);
+        rl9.setVisibility(View.GONE);
+        rl10.setVisibility(View.GONE);
+    }
+
+    // Helper method to set the selected button and layout visible
+    private void setSelected(View button, View layout) {
+        button.setBackgroundResource(R.drawable.bordrsv);
+        layout.setVisibility(View.VISIBLE);
+        currentRl = layout;
+        Log.d("check", "manageClickedData: " + tempe);
     }
 
 
@@ -473,7 +267,7 @@ public class Template_Fragment extends Fragment {
         phoneNumber.setText(personalDetailsModelArrayList.get(0).getContact());
         adress.setText(personalDetailsModelArrayList.get(0).getAddress());
         objective.setText(objective_models.get(0).getCvobective());
-        designation.setText(models_experince.get(0).getDesignations());
+//        designation.setText(models_experince.get(0).getDesignations());
 
 
         RecyclerView experience_recycler = view.findViewById(R.id.experience_recycler);
@@ -540,8 +334,8 @@ public class Template_Fragment extends Fragment {
         });
         ((LinearLayout) this.dialog.findViewById(R.id.ly_cancel_dialog)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                if (Template_Fragment.this.edtcvName.getText().toString().trim().length() == 0) {
-                    Toast.makeText(Template_Fragment.this.getContext(), "write cv name", 0).show();
+                if (Template_Fragment.this.edtcvName.getText().toString().trim().isEmpty()) {
+                    Toast.makeText(Template_Fragment.this.getContext(), "write cv name", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 Template_Fragment.this.editor.putString("cvsaved", Template_Fragment.this.edtcvName.getText().toString());
