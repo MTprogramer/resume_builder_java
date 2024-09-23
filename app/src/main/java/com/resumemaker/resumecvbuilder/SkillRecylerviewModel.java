@@ -5,7 +5,7 @@ public class SkillRecylerviewModel {
     private String skillName;
     private String skillLevel;
 
-    SkillRecylerviewModel(String str, String str2) {
+    public SkillRecylerviewModel(String str, String str2) {
         this.skillName = str;
         this.skillLevel = str2;
     }

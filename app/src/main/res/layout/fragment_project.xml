@@ -108,47 +108,6 @@
                         android:textSize="16dp" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/lyprojectsecondname"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_45sdp"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:background="@drawable/ivbg_recyl"
-                    android:orientation="horizontal">
-
-                    <EditText
-                        android:id="@+id/proj_Name_id"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:background="@android:color/transparent"
-                        android:hint="Enter project name"
-                        android:textSize="16dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/lyprojectsecondurl"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_45sdp"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:background="@drawable/ivbg_recyl"
-                    android:orientation="horizontal">
-
-                    <EditText
-                        android:id="@+id/projUrlTwo_id"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:background="@android:color/transparent"
-                        android:hint="Enter project url"
-                        android:textSize="16dp" />
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/layedu"
@@ -172,7 +131,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_210sdp"
+            android:layout_height="match_parent"
             android:layout_below="@+id/layedu"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"

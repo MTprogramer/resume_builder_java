@@ -10,6 +10,6 @@ public class MainApplication extends Application {
 
     public void onCreate() {
         super.onCreate();
-        AppCompatDelegate.setDefaultNightMode(1);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
     }
 }

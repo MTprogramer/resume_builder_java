@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
-import com.resumemaker.resumecvbuilder.MainActivity;
+import com.resumemaker.resumecvbuilder.UI.MainActivity;
 import com.resumemaker.resumecvbuilder.R;
 import com.resumemaker.resumecvbuilder.ads.MyApplication;
 

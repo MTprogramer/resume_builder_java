@@ -82,27 +82,23 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name="com.resumemaker.resumecvbuilder.CvViewer"
+            android:name="com.resumemaker.resumecvbuilder.UI.CvViewer"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.resumemaker.resumecvbuilder.SaveActivity"
+            android:name="com.resumemaker.resumecvbuilder.UI.SaveActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.resumemaker.resumecvbuilder.TomthanosActivity"
+            android:name="com.resumemaker.resumecvbuilder.UI.Create_CV"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.resumemaker.resumecvbuilder.Create_CV"
+            android:name="com.resumemaker.resumecvbuilder.UI.EditActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.resumemaker.resumecvbuilder.EditActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.resumemaker.resumecvbuilder.MainActivity"
+            android:name="com.resumemaker.resumecvbuilder.UI.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
 

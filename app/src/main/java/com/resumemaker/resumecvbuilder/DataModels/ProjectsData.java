@@ -1,11 +1,10 @@
-package com.resumemaker.resumecvbuilder;
+package com.resumemaker.resumecvbuilder.DataModels;
 
-public class ProjectRecylerviewModel {
-
+public class ProjectsData {
     private String projectName;
     private String projectUrl;
 
-    public ProjectRecylerviewModel(String projectName, String projectUrl) {
+    public ProjectsData(String projectName, String projectUrl) {
         this.projectName = projectName;
         this.projectUrl = projectUrl;
     }

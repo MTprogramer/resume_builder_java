@@ -42,7 +42,7 @@ public class ProjectDBHandler extends SQLiteOpenHelper {
         ArrayList<ProjectRecylerviewModel> arrayList = new ArrayList<>();
         if (rawQuery.moveToFirst()) {
             do {
-                arrayList.add(new ProjectRecylerviewModel(rawQuery.getString(1), rawQuery.getString(2), rawQuery.getString(3), rawQuery.getString(4)));
+//                arrayList.add(new ProjectRecylerviewModel(rawQuery.getString(1), rawQuery.getString(2), rawQuery.getString(3), rawQuery.getString(4)));
             } while (rawQuery.moveToNext());
         }
         rawQuery.close();

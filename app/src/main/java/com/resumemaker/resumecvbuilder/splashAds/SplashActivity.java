@@ -18,7 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import com.resumemaker.resumecvbuilder.MainActivity;
+import com.resumemaker.resumecvbuilder.UI.MainActivity;
 import com.resumemaker.resumecvbuilder.R;
 
 import com.resumemaker.resumecvbuilder.ads.AdsCommon;
