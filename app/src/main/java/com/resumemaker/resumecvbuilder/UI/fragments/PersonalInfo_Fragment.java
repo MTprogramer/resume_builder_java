@@ -17,6 +17,9 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.resumemaker.resumecvbuilder.DB.SkillsRoom.PersonalInfoRoom.PersonalInfoDao;
+import com.resumemaker.resumecvbuilder.DB.SkillsRoom.ResumeDatabase;
+import com.resumemaker.resumecvbuilder.DataModels.PersonalInfo;
 import com.resumemaker.resumecvbuilder.PersonalDetailsModel;
 import com.resumemaker.resumecvbuilder.PersonalInfoDBHandler;
 import com.resumemaker.resumecvbuilder.R;
@@ -25,6 +28,8 @@ import com.resumemaker.resumecvbuilder.callbackes.MyCallback;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import java.util.ArrayList;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 import java.util.regex.Pattern;
 
 public class PersonalInfo_Fragment extends Fragment {
@@ -35,12 +40,18 @@ public class PersonalInfo_Fragment extends Fragment {
     private EditText contactEditText;
     SQLiteDatabase db;
     private PersonalInfoDBHandler dbHandler;
-    ArrayList<PersonalDetailsModel> detailsModel;
+    PersonalInfo detailsModel;
+
+    PersonalInfoDao personalInfoDao;
+
+
+    private final Executor executor = Executors.newSingleThreadExecutor();
     
     public EditText emailEditText;
     boolean emailvalid = false;
     String employeAddress;
     String employeEmail;
+    String obj;
     String employeName;
     String employeeContact;
     Uri imageUri;
@@ -59,6 +70,11 @@ public class PersonalInfo_Fragment extends Fragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.fragment_personal_info_, viewGroup, false);
 
+
+        ResumeDatabase resumeDatabase = ResumeDatabase.getInstance(getContext());
+        personalInfoDao = resumeDatabase.personalInfoDao();
+
+
         Create_CV.viewPager.setSwipeEnabled(false);
         nameEditText = inflate.findViewById(R.id.id_name);
         profession = inflate.findViewById(R.id.id_profession);
@@ -72,10 +88,11 @@ public class PersonalInfo_Fragment extends Fragment {
         linearLayout_phone = inflate.findViewById(R.id.lyphoneno);
         linearLayout_email = inflate.findViewById(R.id.lyEmail);
         linearLayout_adress = inflate.findViewById(R.id.lyAddress);
-        detailsModel = new ArrayList<>();
         PersonalInfoDBHandler personalInfoDBHandler = new PersonalInfoDBHandler(getContext());
         dbHandler = personalInfoDBHandler;
-        detailsModel = personalInfoDBHandler.readCourses();
+        executor.execute(()->{
+            detailsModel = personalInfoDao.getPersonalInfo();
+        });
         try {
             Uri parse = Uri.parse(getActivity().getSharedPreferences("PREFS_NAME", 0).getString("imageURI", (String) null));
             imageUri = parse;
@@ -156,12 +173,13 @@ public class PersonalInfo_Fragment extends Fragment {
 
     public void onResume() {
         super.onResume();
-        if (!this.detailsModel.isEmpty()) {
-            this.nameEditText.setText(this.detailsModel.get(0).getName());
-            this.profession.setText(this.detailsModel.get(0).getProfession());
-            this.addressEditText.setText(this.detailsModel.get(0).getAddress());
-            this.emailEditText.setText(this.detailsModel.get(0).getEmail());
-            this.contactEditText.setText(this.detailsModel.get(0).getContact());
+        if (detailsModel != null) {
+            this.nameEditText.setText(this.detailsModel.getFullName());
+            this.profession.setText(this.detailsModel.getProfession());
+            this.addressEditText.setText(this.detailsModel.getAddress());
+            this.emailEditText.setText(this.detailsModel.getEmail());
+            this.contactEditText.setText(this.detailsModel.getPhoneNo());
+            obj = this.detailsModel.getObj();
             checkImage = true;
         }
     }
@@ -182,20 +200,32 @@ public class PersonalInfo_Fragment extends Fragment {
         startActivityForResult(intent, 102);
     }
 
-    public void insert(ArrayList<PersonalDetailsModel> arrayList) {
-        if (this.dbHandler.getDataCount() > 0) {
-            String name = this.dbHandler.readCourses().get(0).getName();
-            this.employeName = name;
-            this.dbHandler.updateCourse(name, this.nameEditText.getText().toString(), this.profession.getText().toString(), this.addressEditText.getText().toString(), this.emailEditText.getText().toString(), this.contactEditText.getText().toString());
-            return;
-        }
+    public void insert(PersonalInfo arrayList) {
+//        if (personalInfoDao.getCount() > 0) {
+//            String name = this.dbHandler.readCourses().get(0).getName();
+//            this.employeName = name;
+//            this.dbHandler.updateCourse(name, this.nameEditText.getText().toString(), this.profession.getText().toString(), this.addressEditText.getText().toString(), this.emailEditText.getText().toString(), this.contactEditText.getText().toString());
+//            return;
+//        }
         this.employeName = this.nameEditText.getText().toString();
         this.professionEmploye = this.profession.getText().toString();
         this.employeeContact = this.contactEditText.getText().toString();
         this.employeAddress = this.addressEditText.getText().toString();
-        String obj = this.emailEditText.getText().toString();
-        this.employeEmail = obj;
-        this.dbHandler.addNewCourse(this.employeName, this.professionEmploye, this.employeeContact, obj, this.employeAddress);
+        String email = this.emailEditText.getText().toString();
+        this.employeEmail = email;
+//        this.dbHandler.addNewCourse(this.employeName, this.professionEmploye, this.employeeContact, email, this.employeAddress);
+
+        executor.execute(() -> {
+            personalInfoDao.clearAll();
+            personalInfoDao.insertOrUpdate(new PersonalInfo(this.imageUri.toString(), this.employeName, this.professionEmploye, email, this.employeeContact , this.employeAddress , obj ));
+            // Check if data was inserted successfully
+            if (personalInfoDao.getCount() > 0) {
+                System.out.println("Data inserted successfully!");
+            } else {
+                System.out.println("Data insertion failed.");
+            }
+        });
+
         this.nameEditText.setText("");
         this.profession.setText("");
         this.contactEditText.setText("");
@@ -228,7 +258,7 @@ public class PersonalInfo_Fragment extends Fragment {
                 if (z) {
                     pickFromGallery();
                 } else {
-                    Toast.makeText(getContext(), "Storage and Storage Permission is required", 0).show();
+                    Toast.makeText(getContext(), "Storage and Storage Permission is required", Toast.LENGTH_SHORT).show();
                 }
             }
         } else if (iArr.length > 0) {
@@ -237,7 +267,7 @@ public class PersonalInfo_Fragment extends Fragment {
                 z = false;
             }
             if (!z2 || !z) {
-                Toast.makeText(getContext(), "Camera and Storage Permissions are required", 0).show();
+                Toast.makeText(getContext(), "Camera and Storage Permissions are required", Toast.LENGTH_SHORT).show();
             } else {
                 pickFromcamera();
             }

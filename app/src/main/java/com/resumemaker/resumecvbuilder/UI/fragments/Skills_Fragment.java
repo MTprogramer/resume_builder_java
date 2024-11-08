@@ -1,6 +1,8 @@
 package com.resumemaker.resumecvbuilder.UI.fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +18,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.resumemaker.resumecvbuilder.DB.SkillsRoom.ResumeDatabase;
+import com.resumemaker.resumecvbuilder.DB.SkillsRoom.SkillsDao;
+import com.resumemaker.resumecvbuilder.DataModels.ExperienceData;
+import com.resumemaker.resumecvbuilder.DataModels.SkillsData;
 import com.resumemaker.resumecvbuilder.R;
 import com.resumemaker.resumecvbuilder.Adapters.SkillAdapter;
 import com.resumemaker.resumecvbuilder.SkillDBHandler;
@@ -23,6 +29,9 @@ import com.resumemaker.resumecvbuilder.SkillRecylerviewModel;
 import com.resumemaker.resumecvbuilder.UI.Create_CV;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class Skills_Fragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
@@ -30,15 +39,16 @@ public class Skills_Fragment extends Fragment implements AdapterView.OnItemSelec
     EditText edt_SkillOne;
     ImageView ivSaved;
     LinearLayout linearLayout_skill1;
-    ArrayList<SkillRecylerviewModel> list;
+    ArrayList<SkillsData> list;
     LinearLayout lySkills;
     SkillAdapter skillAdapter;
-    SkillDBHandler skillDBHandler;
+    SkillsDao skillDBHandler;
     String skillName;
     String skillLevel = "Beginner";
     RecyclerView skill_recyclerView;
     String[] skillsLevel = {"Beginner", "Intermediate", "Expert"};
     Spinner spin;
+    private final Executor executor = Executors.newSingleThreadExecutor();
 
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long j) {
         skillLevel = adapterView.getSelectedItem().toString();
@@ -54,13 +64,15 @@ public class Skills_Fragment extends Fragment implements AdapterView.OnItemSelec
         Create_CV.viewPager.setSwipeEnabled(false);
         this.skill_recyclerView = (RecyclerView) inflate.findViewById(R.id.recyler_skill);
         this.list = new ArrayList<>();
-        SkillDBHandler skillDBHandler2 = new SkillDBHandler(getContext());
-        this.skillDBHandler = skillDBHandler2;
-        this.list = skillDBHandler2.readCourses();
-        this.skillAdapter = new SkillAdapter(getContext(), this.list);
-        this.skill_recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-//        this.skillAdapter.notifyDataSetChanged();
-        this.skill_recyclerView.setAdapter(this.skillAdapter);
+        executor.execute(() -> {
+            this.skillDBHandler = ResumeDatabase.getInstance(getContext()).skillsDao();
+            this.list.addAll(skillDBHandler.getAllSkillsData());
+            new Handler(Looper.getMainLooper()).post(() -> {
+                this.skillAdapter = new SkillAdapter(getContext(), this.list , skillDBHandler);
+                this.skill_recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                this.skill_recyclerView.setAdapter(this.skillAdapter);
+            });
+        });
         this.ivSaved = (ImageView) inflate.findViewById(R.id.id_save_skill);
         this.spin = (Spinner) inflate.findViewById(R.id.spinner);
         this.spin.setOnItemSelectedListener(this);
@@ -84,7 +96,6 @@ public class Skills_Fragment extends Fragment implements AdapterView.OnItemSelec
             }
         });
 
-        this.skillDBHandler = new SkillDBHandler(getContext());
         this.addSkill.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Skills_Fragment.this.lySkills.setVisibility(View.VISIBLE);
@@ -96,18 +107,26 @@ public class Skills_Fragment extends Fragment implements AdapterView.OnItemSelec
                     Toast.makeText(Skills_Fragment.this.getActivity(), "Please provide your information", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Skills_Fragment skills_Fragment = Skills_Fragment.this;
-                skills_Fragment.skillName = skills_Fragment.edt_SkillOne.getText().toString();
-                Skills_Fragment.this.edt_SkillOne.setText("");
-                Skills_Fragment.this.lySkills.setVisibility(View.GONE);
-                list.add(new SkillRecylerviewModel(skillName,skillLevel));
-//                Skills_Fragment.this.skillDBHandler.addNewCourse(skillName , skillLevel);
-//                 list = skills_Fragment5.skillDBHandler.readCourses();
-//                Skills_Fragment.this.skill_recyclerView.setLayoutManager(new LinearLayoutManager(Skills_Fragment.this.getContext()));
-//                Skills_Fragment.this.skillAdapter = new SkillAdapter(Skills_Fragment.this.getContext(), Skills_Fragment.this.list);
-//                Skills_Fragment.this.skill_recyclerView.setAdapter(Skills_Fragment.this.skillAdapter);
-                Skills_Fragment.this.skillAdapter.notifyDataSetChanged();
 
+                skillName = edt_SkillOne.getText().toString();
+
+                executor.execute(() -> {
+                    // Insert new ExperienceData in background thread
+                    skillDBHandler.insert(new SkillsData(skillName , skillLevel));
+
+                    // Retrieve the updated data in background thread
+                    List<SkillsData> updatedList = skillDBHandler.getAllSkillsData();
+
+                    // Post UI update on the main thread
+                    new Handler(Looper.getMainLooper()).post(() -> {
+                        list.clear();
+                        list.addAll(updatedList);
+                        skillAdapter.notifyDataSetChanged();
+                        // Clear the input fields and update visibility
+                        Toast.makeText(getActivity(), "Saved Successfully", Toast.LENGTH_SHORT).show();
+                        Skills_Fragment.this.edt_SkillOne.setText("");
+                    });
+                });
             }
         });
         return inflate;

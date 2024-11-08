@@ -10,14 +10,14 @@
         <LinearLayout android:background="#000000" android:layout_width="@dimen/_110sdp" android:layout_height="@dimen/_560sdp" android:layout_marginTop="@dimen/_10sdp" android:layout_marginBottom="@dimen/_10sdp" android:layout_marginStart="@dimen/_5sdp">
             <LinearLayout android:orientation="vertical" android:layout_width="@dimen/_110sdp" android:layout_height="wrap_content">
                 <LinearLayout android:layout_width="@dimen/_100sdp" android:layout_height="@dimen/_100sdp">
-                    <ImageView android:scaleType="fitCenter" android:id="@+id/image_view" android:background="@drawable/bgprofile" android:layout_width="@dimen/_80sdp" android:layout_height="@dimen/_80sdp" android:layout_marginTop="@dimen/_10sdp" android:src="@drawable/imagetoms" android:layout_marginStart="@dimen/_10sdp"/>
+                    <ImageView android:scaleType="fitXY" android:id="@+id/image_view" android:background="@drawable/bgprofile" android:layout_width="@dimen/_80sdp" android:layout_height="@dimen/_80sdp" android:layout_marginTop="@dimen/_10sdp" android:src="@drawable/imagetoms" android:layout_marginStart="@dimen/_10sdp"/>
                 </LinearLayout>
                 <TextView android:textSize="10dp" android:textStyle="bold" android:textColor="@color/white" android:fontFamily="@font/poppins_semi_bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_8sdp" android:text="CONTACT" android:layout_marginStart="@dimen/_5sdp"/>
                 <LinearLayout android:orientation="horizontal" android:layout_width="@dimen/_100sdp" android:layout_height="wrap_content">
                     <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
                         <ImageView android:layout_width="@dimen/_15sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_5sdp" android:src="@drawable/phonemarko" android:layout_marginStart="@dimen/_5sdp"/>
                         <ImageView android:layout_width="@dimen/_15sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_5sdp" android:src="@drawable/emailmarko" android:layout_marginStart="@dimen/_5sdp"/>
-                        <ImageView android:layout_width="@dimen/_15sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_5sdp" android:src="@drawable/bgadressrarko" android:layout_marginStart="@dimen/_5sdp"/>
+                        <ImageView android:layout_width="@dimen/_15sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_15sdp" android:src="@drawable/bgadressrarko" android:layout_marginStart="@dimen/_5sdp"/>
                     </LinearLayout>
                     <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/_5sdp">
                         <TextView android:textSize="7dp" android:textColor="@color/white" android:id="@+id/phoneNumber" android:fontFamily="@font/poppins_medium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="+9266551215"/>
@@ -46,7 +46,8 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="@dimen/_110sdp"
                         android:layout_height="wrap_content"
-                        tools:listitem="@layout/project_card"
+                        tools:listitem="@layout/project_card_3"
+                        android:layout_marginStart="@dimen/_5sdp"
                         android:id="@+id/project_recycler"
                         tools:itemCount="3"
                         />
@@ -115,7 +116,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_5sdp"
                 tools:listitem="@layout/education_card_4"
                 android:id="@+id/experience_recycler"
                 tools:itemCount="3"
@@ -170,7 +171,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_50sdp"
+                android:layout_marginStart="@dimen/_5sdp"
                 tools:listitem="@layout/education_card_4"
                 android:id="@+id/education_recycler"
                 tools:itemCount="3"

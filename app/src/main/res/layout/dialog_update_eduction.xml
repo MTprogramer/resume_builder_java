@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="@dimen/_300sdp"
-        android:layout_height="@dimen/_330sdp"
+        android:layout_height="wrap_content"
         android:background="@drawable/exitbgwhite"
         android:orientation="vertical">
 
@@ -51,7 +51,7 @@
                 <EditText
                     android:id="@+id/edu_edt_universty"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_25sdp"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:background="@android:color/transparent"
@@ -71,7 +71,7 @@
                 <EditText
                     android:id="@+id/edu_edt_degree"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_25sdp"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:background="@android:color/transparent"
@@ -91,7 +91,7 @@
                 <EditText
                     android:id="@+id/edu_edt_score"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_25sdp"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:background="@android:color/transparent"
@@ -109,9 +109,30 @@
                 android:orientation="horizontal">
 
                 <EditText
+                    android:id="@+id/edu_edt_startdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:background="@android:color/transparent"
+                    android:hint="Start Date"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/input_bg"
+                android:orientation="horizontal">
+
+                <EditText
                     android:id="@+id/edu_edt_compdate"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_25sdp"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:background="@android:color/transparent"
@@ -119,47 +140,47 @@
                     android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/transparent"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:id="@+id/lay_ok"
+            android:layout_width="@dimen/_70sdp"
+            android:gravity="center"
+            android:background="@drawable/exitbarbg"
+            android:layout_height="@dimen/_20sdp">
+
+            <TextView
+                android:id="@+id/id_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="NO"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_cancel"
+            android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_20sdp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:orientation="horizontal">
+            android:gravity="center"
+            android:background="@drawable/exitbarbg"
+            android:layout_marginStart="@dimen/_70sdp">
 
-            <LinearLayout
-                android:id="@+id/lay_ok"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_20sdp">
-
-                <TextView
-                    android:id="@+id/id_cancel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_20sdp"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:gravity="center"
-                    android:text="NO"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ly_cancel"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:layout_marginStart="@dimen/_70sdp">
-
-                <TextView
-                    android:id="@+id/id_ok"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_marginEnd="@dimen/_5sdp"
-                    android:text="UPDATE"
-                    android:textStyle="bold" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/id_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="UPDATE"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

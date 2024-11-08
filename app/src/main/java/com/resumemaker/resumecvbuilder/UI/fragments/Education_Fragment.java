@@ -3,6 +3,8 @@ package com.resumemaker.resumecvbuilder.UI.fragments;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +20,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.resumemaker.resumecvbuilder.Adapters.EducationAdapter;
+import com.resumemaker.resumecvbuilder.DB.SkillsRoom.EducationRoom.EducationDao;
+import com.resumemaker.resumecvbuilder.DB.SkillsRoom.ResumeDatabase;
+import com.resumemaker.resumecvbuilder.DataModels.EducationData;
 import com.resumemaker.resumecvbuilder.EducationDBHandler;
 import com.resumemaker.resumecvbuilder.EducationRecylerviewModel;
 import com.resumemaker.resumecvbuilder.R;
@@ -27,19 +32,26 @@ import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class Education_Fragment extends Fragment {
     ImageView addBtnEdu;
     String completiondate;
+    String start_date;
     String degreetitle;
     Dialog dialog;
+    private Calendar myCalendarStart = Calendar.getInstance(); // Calendar for start date
+    private Calendar myCalendarCompletion = Calendar.getInstance(); // Calendar for completion date
     TextView edtCompletDate;
+    TextView startEdit;
     EditText edtDegree;
     EditText edtOrganization;
     EditText edtdescrption;
     EducationAdapter educationAdapter;
-    EducationDBHandler educationDBHandler;
+    EducationDao educationDBHandler;
     RecyclerView education_recyclerView;
     ImageView ivDelete;
     ImageView ivSaved;
@@ -47,11 +59,12 @@ public class Education_Fragment extends Fragment {
     LinearLayout linearLayout_degreedescp;
     LinearLayout linearLayout_degreetitle;
     LinearLayout linearLayout_univName;
-    ArrayList<EducationRecylerviewModel> list;
+    ArrayList<EducationData> list;
     LinearLayout lyEducation;
-    final Calendar myCalendar = Calendar.getInstance();
     String organizationname;
     String score;
+
+    private final Executor executor = Executors.newSingleThreadExecutor();
 
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.fragment_education_, viewGroup, false);
@@ -59,12 +72,15 @@ public class Education_Fragment extends Fragment {
         Create_CV.viewPager.setSwipeEnabled(false);
         this.education_recyclerView = (RecyclerView) inflate.findViewById(R.id.recylewviewid);
         this.list = new ArrayList<>();
-        EducationDBHandler educationDBHandler2 = new EducationDBHandler(getContext());
-        this.educationDBHandler = educationDBHandler2;
-        this.list = educationDBHandler2.readCourses();
-        this.educationAdapter = new EducationAdapter(getContext(), this.list);
+
+        executor.execute(() -> {
+            educationDBHandler = ResumeDatabase.getInstance(getContext()).educationDao();
+            this.list.addAll(educationDBHandler.getAllEducationData());
+        });
+        Log.d("listsize", "listsize" + this.list.size());
+        this.educationAdapter = new EducationAdapter(getContext(), this.list , educationDBHandler);
         this.education_recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        this.educationAdapter.notifyDataSetChanged();
+
         this.education_recyclerView.setAdapter(this.educationAdapter);
         this.lyEducation = (LinearLayout) inflate.findViewById(R.id.ly_mainEducation);
         this.linearLayout_univName = (LinearLayout) inflate.findViewById(R.id.lyuniname);
@@ -77,6 +93,7 @@ public class Education_Fragment extends Fragment {
         this.edtDegree = (EditText) inflate.findViewById(R.id.idDegree);
         this.edtdescrption = (EditText) inflate.findViewById(R.id.idScore);
         this.edtCompletDate = (TextView) inflate.findViewById(R.id.idComplet);
+        this.startEdit = (TextView) inflate.findViewById(R.id.idStart);
         this.edtOrganization.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             public void onFocusChange(View view, boolean z) {
                 if (z) {
@@ -104,90 +121,124 @@ public class Education_Fragment extends Fragment {
                 }
             }
         });
-        final DatePickerDialog.OnDateSetListener r5 = new DatePickerDialog.OnDateSetListener() {
-            public void onDateSet(DatePicker datePicker, int i, int i2, int i3) {
-                Education_Fragment.this.myCalendar.set(1, i);
-                Education_Fragment.this.myCalendar.set(2, i2);
-                Education_Fragment.this.myCalendar.set(5, i3);
-                updateLabel();
+        // Listener for Completion Date (End Date)
+        final DatePickerDialog.OnDateSetListener completionDateListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                myCalendarCompletion.set(Calendar.YEAR, year); // Set only the year for completion date
+                updateLabel(); // Update the label with the new year
             }
 
             private void updateLabel() {
-                Education_Fragment.this.edtCompletDate.setText(new SimpleDateFormat("dd/MM/yy", Locale.US).format(Education_Fragment.this.myCalendar.getTime()));
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy", Locale.US);
+                edtCompletDate.setText(sdf.format(myCalendarCompletion.getTime()));  // For Completion Date
             }
         };
-        this.edtCompletDate.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                new DatePickerDialog(Education_Fragment.this.getActivity(), r5, Education_Fragment.this.myCalendar.get(1), Education_Fragment.this.myCalendar.get(2), Education_Fragment.this.myCalendar.get(5)).show();
+
+        // Listener for Start Date
+        final DatePickerDialog.OnDateSetListener startDateListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                myCalendarStart.set(Calendar.YEAR, year); // Set only the year for start date
+                updateLabel(); // Update the label with the new year
+            }
+
+            private void updateLabel() {
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy", Locale.US);
+                startEdit.setText(sdf.format(myCalendarStart.getTime()));  // For Start Date
+            }
+        };
+
+        // Set the listeners for both fields (start and completion year)
+        edtCompletDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new DatePickerDialog(getActivity(), completionDateListener, myCalendarCompletion.get(Calendar.YEAR),
+                        myCalendarCompletion.get(Calendar.MONTH), myCalendarCompletion.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
-        this.edtCompletDate.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            public void onFocusChange(View view, boolean z) {
-                if (z) {
-                    Education_Fragment.this.linearLayout_completionDate.setBackgroundResource(R.drawable.ivinputbg);
+
+        startEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new DatePickerDialog(getActivity(), startDateListener, myCalendarStart.get(Calendar.YEAR),
+                        myCalendarStart.get(Calendar.MONTH), myCalendarStart.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
+        // Handle focus changes for styling purposes (optional)
+        edtCompletDate.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (hasFocus) {
+                    linearLayout_completionDate.setBackgroundResource(R.drawable.ivinputbg);
                 } else {
-                    Education_Fragment.this.linearLayout_completionDate.setBackgroundResource(R.drawable.ivbg_recyl);
+                    linearLayout_completionDate.setBackgroundResource(R.drawable.ivbg_recyl);
+                }
+            }
+        });
+
+        startEdit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (hasFocus) {
+                    linearLayout_completionDate.setBackgroundResource(R.drawable.ivinputbg);
+                } else {
+                    linearLayout_completionDate.setBackgroundResource(R.drawable.ivbg_recyl);
                 }
             }
         });
         this.ivSaved.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                if (Education_Fragment.this.edtOrganization.getText().toString().trim().length() == 0 || Education_Fragment.this.edtDegree.getText().toString().trim().length() == 0 || Education_Fragment.this.edtdescrption.getText().toString().trim().length() == 0 || Education_Fragment.this.edtCompletDate.getText().toString().trim().length() == 0) {
-                    Toast.makeText(Education_Fragment.this.getActivity(), "Please Fill all Fields", 0).show();
+                if (edtOrganization.getText().toString().trim().isEmpty() ||
+                        edtDegree.getText().toString().trim().isEmpty() ||
+                        edtdescrption.getText().toString().trim().isEmpty() ||
+                        edtCompletDate.getText().toString().trim().isEmpty() ||
+                        startEdit.getText().toString().trim().isEmpty()) {
+
+                    Toast.makeText(getActivity(), "Please Fill all Fields", Toast.LENGTH_SHORT).show();
                     Create_CV.isFilled = false;
                     return;
                 }
+
                 Create_CV.isFilled = true;
-                Education_Fragment education_Fragment = Education_Fragment.this;
-                education_Fragment.organizationname = education_Fragment.edtOrganization.getText().toString();
-                Education_Fragment education_Fragment2 = Education_Fragment.this;
-                education_Fragment2.degreetitle = education_Fragment2.edtDegree.getText().toString();
-                Education_Fragment education_Fragment3 = Education_Fragment.this;
-                education_Fragment3.score = education_Fragment3.edtdescrption.getText().toString();
-                Education_Fragment education_Fragment4 = Education_Fragment.this;
-                education_Fragment4.completiondate = education_Fragment4.edtCompletDate.getText().toString();
-                Education_Fragment.this.educationDBHandler = new EducationDBHandler(Education_Fragment.this.getContext());
-                Education_Fragment.this.educationDBHandler.addNewCourse(Education_Fragment.this.organizationname, Education_Fragment.this.degreetitle, Education_Fragment.this.score, Education_Fragment.this.completiondate);
-                Education_Fragment education_Fragment5 = Education_Fragment.this;
-                education_Fragment5.list = education_Fragment5.educationDBHandler.readCourses();
-                Toast.makeText(Education_Fragment.this.getActivity(), "Saved Successfully", 0).show();
-                Education_Fragment.this.edtOrganization.setText("");
-                Education_Fragment.this.edtDegree.setText("");
-                Education_Fragment.this.edtdescrption.setText("");
-                Education_Fragment.this.edtCompletDate.setText("");
-                Education_Fragment.this.lyEducation.setVisibility(8);
-                Education_Fragment.this.education_recyclerView.setLayoutManager(new LinearLayoutManager(Education_Fragment.this.getContext()));
-                Education_Fragment.this.educationAdapter = new EducationAdapter(Education_Fragment.this.getContext(), Education_Fragment.this.list);
-                Education_Fragment.this.educationAdapter.notifyDataSetChanged();
-                Education_Fragment.this.education_recyclerView.setAdapter(Education_Fragment.this.educationAdapter);
+                organizationname = edtOrganization.getText().toString();
+                degreetitle = edtDegree.getText().toString();
+                score = edtdescrption.getText().toString();
+                completiondate = edtCompletDate.getText().toString();
+                start_date = startEdit.getText().toString();
+
+                executor.execute(() -> {
+                    // Insert new EducationData in background thread
+                    educationDBHandler.insert(new EducationData(completiondate, start_date, degreetitle, organizationname, score));
+
+                    // Retrieve the updated data in background thread
+                    List<EducationData> updatedList = educationDBHandler.getAllEducationData();
+
+                    // Post UI update on the main thread
+                    new Handler(Looper.getMainLooper()).post(() -> {
+                        list.clear();
+                        list.addAll(updatedList);
+                        educationAdapter.notifyDataSetChanged();
+                        Toast.makeText(getActivity(), "Saved Successfully", Toast.LENGTH_SHORT).show();
+
+                        // Clear the input fields and update visibility
+                        edtOrganization.setText("");
+                        edtDegree.setText("");
+                        edtdescrption.setText("");
+                        edtCompletDate.setText("");
+                        startEdit.setText("");
+                        lyEducation.setVisibility(View.GONE);
+                    });
+                });
             }
         });
+
         this.addBtnEdu.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Education_Fragment.this.lyEducation.setVisibility(0);
+                Education_Fragment.this.lyEducation.setVisibility(View.VISIBLE);
             }
         });
         return inflate;
-    }
-
-    private DatePickerDialog createDialogWithoutDateField() {
-        DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), (DatePickerDialog.OnDateSetListener) null, 2014, 1, 24);
-        try {
-            for (Field field : datePickerDialog.getClass().getDeclaredFields()) {
-                if (field.getName().equals("mDatePicker")) {
-                    field.setAccessible(true);
-                    DatePicker datePicker = (DatePicker) field.get(datePickerDialog);
-                    for (Field field2 : field.getType().getDeclaredFields()) {
-                        Log.i("test", field2.getName());
-                        if ("mDaySpinner".equals(field2.getName())) {
-                            field2.setAccessible(true);
-                            ((View) field2.get(datePicker)).setVisibility(8);
-                        }
-                    }
-                }
-            }
-        } catch (Exception unused) {
-        }
-        return datePickerDialog;
     }
 }

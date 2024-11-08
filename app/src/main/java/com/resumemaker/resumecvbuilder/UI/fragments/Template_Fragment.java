@@ -11,6 +11,8 @@ import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,9 +26,21 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.resumemaker.resumecvbuilder.Adapters.EducationAdapter;
+import com.resumemaker.resumecvbuilder.Adapters.EducationAdapterCv;
+import com.resumemaker.resumecvbuilder.Adapters.ExperienceAdapterCv;
+import com.resumemaker.resumecvbuilder.Adapters.ProjectsAdapterCv;
+import com.resumemaker.resumecvbuilder.Adapters.SkillAdapter;
+import com.resumemaker.resumecvbuilder.Adapters.SkillsAdapterCv;
+import com.resumemaker.resumecvbuilder.DB.SkillsRoom.ResumeDatabase;
+import com.resumemaker.resumecvbuilder.DataModels.EducationData;
+import com.resumemaker.resumecvbuilder.DataModels.ExperienceData;
+import com.resumemaker.resumecvbuilder.DataModels.PersonalInfo;
+import com.resumemaker.resumecvbuilder.DataModels.ProjectsData;
+import com.resumemaker.resumecvbuilder.DataModels.SkillsData;
 import com.resumemaker.resumecvbuilder.EducationDBHandler;
 import com.resumemaker.resumecvbuilder.EducationRecylerviewModel;
 import com.resumemaker.resumecvbuilder.ExperienceDBHandler;
@@ -51,28 +65,24 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class Template_Fragment extends Fragment {
-    EducationAdapter adapter;
     Bitmap bitmap;
-    PersonalInfoDBHandler dbHandler;
     Dialog dialog;
     SharedPreferences.Editor editor;
     EditText edtcvName;
-    EducationDBHandler educationDBHandler;
-    ArrayList<EducationRecylerviewModel> education_model;
-    ExperienceDBHandler experienceDBHandler;
     Uri imageUri;
-    LinearLayout lyTemply;
     protected boolean mIsVisibleToUser;
-    ArrayList<ExperienceRecylerviewModel> models_experince;
-    ObjectiveDBHandler objectiveDBHandler;
-    ArrayList<Objective_Model> objective_models;
     String path = "";
-    ArrayList<PersonalDetailsModel> personalDetailsModelArrayList;
     SharedPreferences preferencescv;
     ProjectDBHandler projectDBHandler;
-    ArrayList<ProjectRecylerviewModel> projectRecylerviewModel;
+
+
+    // adapters
+    EducationAdapterCv educationAdapterCv;
 
     // included layouts
     RelativeLayout rl1;
@@ -87,8 +97,11 @@ public class Template_Fragment extends Fragment {
     RelativeLayout rl10;
     View currentRl;
 
-    SkillDBHandler skillDBHandler;
-    ArrayList<SkillRecylerviewModel> skills_model;
+    ArrayList<SkillsData> skills_data;
+    PersonalInfo personalInfoData;
+    ArrayList<ExperienceData> experienceData;
+    ArrayList<ProjectsData> projectsData;
+    ArrayList<EducationData> educationData;
 
     // dummy templates
     int tempe = 1;
@@ -104,6 +117,9 @@ public class Template_Fragment extends Fragment {
     ImageView tmp10;
 
 
+    private final Executor executor = Executors.newSingleThreadExecutor();
+
+
     View view;
     View currentView;
 
@@ -112,6 +128,21 @@ public class Template_Fragment extends Fragment {
 
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.view = layoutInflater.inflate(R.layout.fragment_template_, viewGroup, false);
+
+        educationData = new ArrayList<>();
+        experienceData = new ArrayList<>();
+        skills_data = new ArrayList<>();
+        projectsData = new ArrayList<>();
+
+        executor.execute(()->{
+            ResumeDatabase resumeDatabase = ResumeDatabase.getInstance(getContext());
+            educationData.addAll(resumeDatabase.educationDao().getAllEducationData());
+            experienceData.addAll(resumeDatabase.experienceDao().getAllExperienceData());
+            skills_data.addAll(resumeDatabase.skillsDao().getAllSkillsData());
+            projectsData.addAll(resumeDatabase.projectsDao().getAllProjectsData());
+            personalInfoData = resumeDatabase.personalInfoDao().getPersonalInfo();
+
+        });
         
         Create_CV.viewPager.setSwipeEnabled(false);
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("PREFS_CV", 0);
@@ -144,12 +175,12 @@ public class Template_Fragment extends Fragment {
         tmp2 = view.findViewById(R.id.tamplets2);
         tmp3 = view.findViewById(R.id.tamplet3);
         tmp4 = view.findViewById(R.id.tamplet4);
+        tmp5 = view.findViewById(R.id.tamplet5);
         tmp6 = view.findViewById(R.id.tamplet6);
         tmp7 = view.findViewById(R.id.tamplet7);
         tmp8 = view.findViewById(R.id.tamplet8);
         tmp9 = view.findViewById(R.id.tamplet9);
         tmp10 = view.findViewById(R.id.tamplet10);
-        tmp5 = view.findViewById(R.id.tamplet11);
 
         tmp1.setOnClickListener(v -> manageClickedData(1));
         tmp2.setOnClickListener(v -> manageClickedData(2));
@@ -244,50 +275,78 @@ public class Template_Fragment extends Fragment {
 
     public void settingData() {
 
-
         currentView = currentRl.findViewById(R.id.temp_view);
+        ImageView imageView;
+        TextView user_name;
+        TextView user_email;
+        TextView objective;
+        TextView phoneNumber;
+        TextView designation;
+        TextView adress;
+        if (tempe == 8)
+        {
+            Log.d("main view",String.valueOf(this.view));
+                View view = this.view.findViewById(R.id.lay8);
+                Log.d("view",String.valueOf(view));
+            imageView = view.findViewById(R.id.image_view);
+            user_name = view.findViewById(R.id.user_name);
+            user_email = view.findViewById(R.id.email);
+            phoneNumber = view.findViewById(R.id.phoneNumber);
+            objective = view.findViewById(R.id.objective);
+            designation = view.findViewById(R.id.designation);
+            adress = view.findViewById(R.id.adress);
+        }
+        else
+        {
+            imageView = currentRl.findViewById(R.id.image_view);
+            user_name = currentRl.findViewById(R.id.user_name);
+            user_email = currentRl.findViewById(R.id.email);
+            phoneNumber = currentRl.findViewById(R.id.phoneNumber);
+            objective = currentRl.findViewById(R.id.objective);
+            designation = currentRl.findViewById(R.id.designation);
+            adress = currentRl.findViewById(R.id.adress);
+        }
 
-        this.models_experince = new ArrayList<>();
-        this.personalDetailsModelArrayList = new ArrayList<>();
-        this.objective_models = new ArrayList<>();
-        this.skills_model = new ArrayList<>();
-        this.education_model = new ArrayList<>();
-        this.projectRecylerviewModel = new ArrayList<>();
-        this.dbHandler = new PersonalInfoDBHandler(getActivity());
-        this.objectiveDBHandler = new ObjectiveDBHandler(getActivity());
-        this.experienceDBHandler = new ExperienceDBHandler(getActivity());
-        this.skillDBHandler = new SkillDBHandler(getActivity());
-        this.educationDBHandler = new EducationDBHandler(getActivity());
-        this.projectDBHandler = new ProjectDBHandler(getActivity());
-        this.personalDetailsModelArrayList = this.dbHandler.readCourses();
-        this.objective_models = this.objectiveDBHandler.readCourses();
-        this.models_experince = this.experienceDBHandler.readCourses();
-        this.education_model = this.educationDBHandler.readCourses();
-        this.skills_model = this.skillDBHandler.readCourses();
-        this.projectRecylerviewModel = this.projectDBHandler.readCourses();
 
 
+        RecyclerView experience_recycler = currentRl.findViewById(R.id.experience_recycler);
+        RecyclerView education_recycler = currentRl.findViewById(R.id.education_recycler);
+        RecyclerView skills_recyler = currentRl.findViewById(R.id.skills_recyler);
+        RecyclerView project_recycler = currentRl.findViewById(R.id.project_recycler);
 
-        ImageView imageView = (ImageView) view.findViewById(R.id.image_view);
-        TextView user_name = currentRl.findViewById(R.id.user_name);
-        TextView user_email = currentRl.findViewById(R.id.email);
-        TextView phoneNumber = currentRl.findViewById(R.id.phoneNumber);
-        TextView objective = currentRl.findViewById(R.id.objective);
-        TextView designation = currentRl.findViewById(R.id.designation);
-        TextView adress = currentRl.findViewById(R.id.adress);
 
         imageView.setImageURI(this.imageUri);
-        user_name.setText(personalDetailsModelArrayList.get(0).getName());
-        user_email.setText(personalDetailsModelArrayList.get(0).getEmail());
-        phoneNumber.setText(personalDetailsModelArrayList.get(0).getContact());
-        adress.setText(personalDetailsModelArrayList.get(0).getAddress());
-        objective.setText(objective_models.get(0).getCvobective());
-//        designation.setText(models_experince.get(0).getDesignations());
+        user_name.setText(personalInfoData.getFullName());
+        user_email.setText(personalInfoData.getEmail());
+        phoneNumber.setText(personalInfoData.getPhoneNo());
+        adress.setText(personalInfoData.getAddress());
+        objective.setText(personalInfoData.getObj());
+        designation.setText(personalInfoData.getProfession());
 
 
-        RecyclerView experience_recycler = view.findViewById(R.id.experience_recycler);
-        RecyclerView skills_recyler = view.findViewById(R.id.skills_recyler);
-        RecyclerView project_recycler = view.findViewById(R.id.project_recycler);
+
+        educationAdapterCv = new EducationAdapterCv(educationData , tempe , getContext());
+        education_recycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        education_recycler.setAdapter(educationAdapterCv);
+
+        ExperienceAdapterCv experienceAdapterCv = new ExperienceAdapterCv(experienceData , tempe , getContext());
+        experience_recycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        experience_recycler.setAdapter(experienceAdapterCv);
+
+        SkillsAdapterCv skillAdapter = new SkillsAdapterCv(skills_data , tempe , getContext());
+        skills_recyler.setLayoutManager(new LinearLayoutManager(getContext()));
+        skills_recyler.setAdapter(skillAdapter);
+
+        ProjectsAdapterCv projectAdapter = new ProjectsAdapterCv(projectsData , tempe , getContext());
+        project_recycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        project_recycler.setAdapter(projectAdapter);
+
+
+//        List<EducationData> data = new ArrayList<>();
+//        data.add(new EducationData("2022","ics","Shiblee collage","my collage name shiblee collage","2024"));
+//        data.add(new EducationData("2022","ics","Shiblee collage","my collage name shiblee collage","2024"));
+
+
 
     }
 
@@ -356,12 +415,12 @@ public class Template_Fragment extends Fragment {
                 Template_Fragment.this.editor.putString("cvsaved", Template_Fragment.this.edtcvName.getText().toString());
                 Template_Fragment.this.editor.commit();
                 Template_Fragment.this.createPdf();
-                Template_Fragment.this.dbHandler.deleteData();
-                Template_Fragment.this.objectiveDBHandler.deleteData();
-                Template_Fragment.this.experienceDBHandler.deleteData();
-                Template_Fragment.this.educationDBHandler.deleteData();
-                Template_Fragment.this.skillDBHandler.deleteData();
-                Template_Fragment.this.projectDBHandler.deleteData();
+//                Template_Fragment.this.dbHandler.deleteData();
+//                Template_Fragment.this.objectiveDBHandler.deleteData();
+//                Template_Fragment.this.experienceDBHandler.deleteData();
+//                Template_Fragment.this.educationDBHandler.deleteData();
+//                Template_Fragment.this.skillDBHandler.deleteData();
+//                Template_Fragment.this.projectDBHandler.deleteData();
                 SharedPreferences sharedPreferences = Template_Fragment.this.getActivity().getSharedPreferences("PREFS_NAME", 0);
                 String string = sharedPreferences.getString("imageURI", (String) null);
                 try {

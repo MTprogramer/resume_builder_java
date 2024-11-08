@@ -10,6 +10,7 @@
         android:id="@+id/temp_view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_560sdp"
+        android:layout_marginEnd="100dp"
         android:background="@drawable/johnsmothyellowone"
         android:orientation="horizontal">
 
@@ -31,7 +32,10 @@
                     <ImageView
                         android:id="@+id/image_view"
                         android:layout_width="@dimen/_106sdp"
+                        android:scaleType="fitXY"
+                        android:paddingTop="@dimen/_20sdp"
                         android:layout_height="@dimen/_147sdp"
+                        android:paddingBottom="@dimen/_10sdp"
                         android:src="@drawable/ivjhonsmith" />
 
                     <LinearLayout
@@ -111,14 +115,14 @@
                             <TextView
                                 android:id="@+id/adress"
                                 android:layout_width="@dimen/_70sdp"
-                                android:fontFamily="@font/poppins_regular"
                                 android:layout_height="wrap_content"
-                                android:layout_marginEnd="@dimen/_3sdp"
+                                android:fontFamily="@font/poppins_regular"
                                 android:text="Your Street address/Town/City/Zip"
                                 android:textSize="7dp"
                                 app:layout_constraintBottom_toBottomOf="@+id/ivaconadress"
                                 app:layout_constraintRight_toRightOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/ivaconadress" />
+                                app:layout_constraintTop_toTopOf="@+id/ivaconadress"
+                                app:layout_constraintVertical_bias="0.25" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </LinearLayout>
 
@@ -179,7 +183,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         tools:listitem="@layout/education_card_7"
-                        android:layout_marginStart="@dimen/_10sdp"
                         android:id="@+id/education_recycler"
                         tools:itemCount="3"
                         />

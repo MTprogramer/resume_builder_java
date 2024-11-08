@@ -3,146 +3,158 @@ package com.resumemaker.resumecvbuilder.Adapters;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
-import android.util.Log;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.recyclerview.widget.RecyclerView;
 
-
+import com.resumemaker.resumecvbuilder.DB.SkillsRoom.SkillsDao;
+import com.resumemaker.resumecvbuilder.DataModels.SkillsData;
 import com.resumemaker.resumecvbuilder.R;
-import com.resumemaker.resumecvbuilder.SkillDBHandler;
-import com.resumemaker.resumecvbuilder.SkillRecylerviewModel;
 
 import java.util.ArrayList;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
-public class SkillAdapter extends RecyclerView.Adapter<SkillAdapter.MyExperenceViewHOlder>  implements AdapterView.OnItemSelectedListener {
-    static ArrayList<SkillRecylerviewModel> list;
+public class SkillAdapter extends RecyclerView.Adapter<SkillAdapter.MyExperenceViewHOlder> implements AdapterView.OnItemSelectedListener {
+    static ArrayList<SkillsData> list;
     Dialog dialog;
     Context mContext;
-    SkillRecylerviewModel modelRecylerview;
-    SkillDBHandler skillDBHandler;
+    SkillsData modelRecylerview;
+    SkillsDao skillDBHandler;
+    boolean updateable = false;
     String selected_lvl;
     String[] skillsLevel = {"Beginner", "Intermediate", "Expert"};
 
-    public SkillAdapter(Context context, ArrayList<SkillRecylerviewModel> arrayList) {
+    private final Executor executor = Executors.newSingleThreadExecutor();
+
+    public SkillAdapter(Context context, ArrayList<SkillsData> arrayList , SkillsDao skillDBHandler) {
         this.mContext = context;
         list = arrayList;
+        this.skillDBHandler = skillDBHandler;
     }
 
+    @Override
     public MyExperenceViewHOlder onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new MyExperenceViewHOlder(LayoutInflater.from(this.mContext).inflate(R.layout.skillitems, viewGroup, false));
     }
 
+    @Override
     public void onBindViewHolder(final MyExperenceViewHOlder myExperenceViewHOlder, final int i) {
         this.modelRecylerview = list.get(i);
         myExperenceViewHOlder.skill_name.setText(this.modelRecylerview.getSkillName());
         myExperenceViewHOlder.skill_level.setText(this.modelRecylerview.getSkillLevel());
-        Log.d("listsize", "listsize" + list.size());
 
+        myExperenceViewHOlder.delete.setOnClickListener(view -> deleteDialogForSkill(i));
 
-        myExperenceViewHOlder.delete.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                deteteDialogForSkill();
-            }
-
-            private void deteteDialogForSkill() {
-                SkillAdapter.this.dialog = new Dialog(SkillAdapter.this.mContext);
-                SkillAdapter.this.dialog.requestWindowFeature(1);
-                SkillAdapter.this.dialog.setCancelable(false);
-                SkillAdapter.this.dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-                SkillAdapter.this.dialog.setContentView(R.layout.deletdialog);
-                TextView textView = (TextView) SkillAdapter.this.dialog.findViewById(R.id.id_ok);
-                TextView textView2 = (TextView) SkillAdapter.this.dialog.findViewById(R.id.id_cancel);
-                ((LinearLayout) SkillAdapter.this.dialog.findViewById(R.id.lay_ok)).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        SkillAdapter.this.dialog.dismiss();
-                    }
-                });
-                ((LinearLayout) SkillAdapter.this.dialog.findViewById(R.id.ly_cancel)).setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View view) {
-                        Toast.makeText(SkillAdapter.this.mContext, "Skill Field Deleted", 0).show();
-//                        SkillAdapter.this.skillDBHandler = new SkillDBHandler(view.getContext());
-//                        SkillAdapter.this.skillDBHandler.deleteCourse(myExperenceViewHOlder.txt_skillone.getText().toString());
-                        SkillAdapter.list.remove(i);
-                        notifyItemRemoved(i);
-                        SkillAdapter.this.dialog.dismiss();
-                    }
-                });
-                SkillAdapter.this.dialog.show();
-            }
-        });
-        myExperenceViewHOlder.update.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                updateDialog();
-            }
-
-            private void updateDialog() {
-                SkillAdapter.this.dialog = new Dialog(SkillAdapter.this.mContext);
-                SkillAdapter.this.dialog.requestWindowFeature(1);
-                SkillAdapter.this.dialog.setCancelable(false);
-                SkillAdapter.this.dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-                SkillAdapter.this.dialog.setContentView(R.layout.dialog_update_sill);
-                EditText skill_name = (EditText) SkillAdapter.this.dialog.findViewById(R.id.skills_name);
-                Spinner skill_level =  SkillAdapter.this.dialog.findViewById(R.id.spinner);
-
-                ArrayAdapter arrayAdapter = new ArrayAdapter(mContext, 17367048, skillsLevel);
-                arrayAdapter.setDropDownViewResource(17367049);
-                skill_level.setAdapter(arrayAdapter);
-
-                switch (list.get(i).getSkillLevel())
-                {
-                    case "Beginner":
-                        skill_level.setSelection(0);
-                        break;
-                    case "Intermediate":
-                        skill_level.setSelection(1);
-                        break;
-                    case "Expert":
-                        skill_level.setSelection(2);
-                        break;
-                }
-                skill_name.setText(list.get(i).getSkillName());
-                selected_lvl = list.get(i).getSkillLevel();
-
-                dialog.findViewById(R.id.lay_cencel).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        SkillAdapter.this.dialog.dismiss();
-                    }
-                });
-                dialog.findViewById(R.id.ly_ok).setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View view) {
-
-                        if (!skill_name.getText().toString().isEmpty()) {
-//                        SkillAdapter.this.skillDBHandler = new SkillDBHandler(view.getContext());
-//                        SkillAdapter.this.skillDBHandler.updateCourse(myExperenceViewHOlder.txt_skillone.getText().toString(), obj, obj2, obj3, obj4);
-
-                            String obj = skill_name.getText().toString();
-                            SkillAdapter.list.set(i, new SkillRecylerviewModel(obj, selected_lvl));
-                            SkillAdapter.this.notifyItemChanged(i);
-                            SkillAdapter.this.dialog.dismiss();
-                        }
-                        else
-                            Toast.makeText(SkillAdapter.this.mContext, "Field Cant Be Empty", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                SkillAdapter.this.dialog.show();
-            }
-        });
+        myExperenceViewHOlder.update.setOnClickListener(view -> updateDialog(i));
     }
 
+    private void deleteDialogForSkill(int i) {
+        dialog = new Dialog(mContext);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+        dialog.setContentView(R.layout.deletdialog);
 
+        dialog.findViewById(R.id.lay_ok).setOnClickListener(v -> dialog.dismiss());
 
+        dialog.findViewById(R.id.ly_cancel).setOnClickListener(view -> {
+            executor.execute(() -> {
+                // Get the correct item from the list at index i
+                SkillsData itemToDelete = list.get(i);
+
+                skillDBHandler.delete(itemToDelete);
+
+                new Handler(Looper.getMainLooper()).post(() -> {
+                    if (i < list.size()) {
+                        SkillAdapter.list.remove(i);  // Remove the item safely
+                        notifyItemRemoved(i);
+                        notifyItemRangeChanged(i, list.size());
+                        Toast.makeText(mContext, "Skill Deleted", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                });
+            });
+        });
+
+        dialog.show();
+    }
+
+    private void updateDialog(int i) {
+        dialog = new Dialog(mContext);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+        dialog.setContentView(R.layout.dialog_update_sill);
+
+        EditText skillName = dialog.findViewById(R.id.skills_name);
+        Spinner skillLevelSpinner = dialog.findViewById(R.id.spinner);
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(mContext, android.R.layout.simple_spinner_item, skillsLevel);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        skillLevelSpinner.setAdapter(arrayAdapter);
+
+        switch (list.get(i).getSkillLevel()) {
+            case "Beginner":
+                skillLevelSpinner.setSelection(0);
+                break;
+            case "Intermediate":
+                skillLevelSpinner.setSelection(1);
+                break;
+            case "Expert":
+                skillLevelSpinner.setSelection(2);
+                break;
+        }
+
+        skillName.setText(list.get(i).getSkillName());
+        selected_lvl = list.get(i).getSkillLevel();
+
+        dialog.findViewById(R.id.lay_cencel).setOnClickListener(v -> dialog.dismiss());
+
+        dialog.findViewById(R.id.ly_ok).setOnClickListener(view -> {
+            String updatedSkillName = skillName.getText().toString().trim();
+            String updatedSkillLevel = skillLevelSpinner.getSelectedItem().toString();
+
+            executor.execute(() -> {
+                if (!updatedSkillName.isEmpty()) {
+                    SkillsData skillsData = new SkillsData(updatedSkillName, updatedSkillLevel);
+                    skillsData.setId(modelRecylerview.getId());
+
+                    skillDBHandler.update(skillsData);
+                    updateable = true;
+
+                    new Handler(Looper.getMainLooper()).post(() -> {
+                        if (i < list.size()) {
+                            SkillAdapter.list.set(i, new SkillsData(updatedSkillName, updatedSkillLevel));
+                            notifyItemChanged(i);
+                        }
+                        dialog.dismiss();
+                    });
+                } else {
+                    updateable = false;
+                    new Handler(Looper.getMainLooper()).post(() ->
+                            Toast.makeText(mContext, "Field can't be empty", Toast.LENGTH_SHORT).show()
+                    );
+                }
+            });
+        });
+
+        dialog.show();
+    }
+
+    @Override
     public int getItemCount() {
         return list.size();
     }
@@ -154,7 +166,7 @@ public class SkillAdapter extends RecyclerView.Adapter<SkillAdapter.MyExperenceV
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
+        // No action needed
     }
 
     public class MyExperenceViewHOlder extends RecyclerView.ViewHolder {
@@ -162,12 +174,13 @@ public class SkillAdapter extends RecyclerView.Adapter<SkillAdapter.MyExperenceV
         TextView skill_level;
         ImageView delete;
         ImageView update;
+
         public MyExperenceViewHOlder(View view) {
             super(view);
-            skill_name = (TextView) view.findViewById(R.id.skill_name);
-            skill_level = (TextView) view.findViewById(R.id.skill_level);
-            delete =  view.findViewById(R.id.delet_image_id);
-            update =  view.findViewById(R.id.edt_image_id);
+            skill_name = view.findViewById(R.id.skill_name);
+            skill_level = view.findViewById(R.id.skill_level);
+            delete = view.findViewById(R.id.delet_image_id);
+            update = view.findViewById(R.id.edt_image_id);
         }
     }
 }

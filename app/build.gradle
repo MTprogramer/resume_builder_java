@@ -90,6 +90,9 @@ dependencies {
 
 
 
+    // Room components
+    implementation "androidx.room:room-runtime:2.5.1"  // Replace with the latest version
+    annotationProcessor "androidx.room:room-compiler:2.5.1"  // For Java projects
 
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'

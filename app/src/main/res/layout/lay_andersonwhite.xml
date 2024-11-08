@@ -13,14 +13,9 @@
                     <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/_10sdp" android:layout_marginEnd="@dimen/_10sdp">
                         <TextView android:textSize="10dp" android:textColor="@color/black" android:gravity="right" android:fontFamily="@font/poppins_semi_bold" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp" android:text="EDUCATION" android:layout_marginStart="@dimen/_25sdp"/>
                         <View android:background="@drawable/yallowview" android:layout_width="@dimen/_22sdp" android:layout_height="2dp" android:layout_marginTop="@dimen/_5sdp" android:layout_marginStart="@dimen/_70sdp"/>
-<!--                        <LinearLayout android:orientation="vertical" android:id="@+id/lyeduAnderFirst" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content">-->
-<!--                            <TextView android:textSize="7dp" android:gravity="right" android:id="@+id/dates_complet_andeson" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="2014"/>-->
-<!--                            <TextView android:textSize="7dp" android:gravity="right" android:id="@+id/degreename_anderson" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="Degree Name"/>-->
-<!--                            <TextView android:textSize="7dp" android:gravity="right" android:id="@+id/universityname_andeson" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="University Name"/>-->
-<!--                        </LinearLayout>-->
 
                         <androidx.recyclerview.widget.RecyclerView
-                            android:layout_width="@dimen/_120sdp"
+                            android:layout_width="@dimen/_105sdp"
                             android:layout_height="wrap_content"
                             tools:listitem="@layout/education_card_1"
                             android:id="@+id/education_recycler"
@@ -39,7 +34,7 @@
                         <View android:background="@drawable/yallowview" android:layout_width="@dimen/_22sdp" android:layout_height="2dp" android:layout_marginTop="@dimen/_5sdp" android:layout_marginStart="@dimen/_70sdp"/>
 
                         <androidx.recyclerview.widget.RecyclerView
-                            android:layout_width="@dimen/_120sdp"
+                            android:layout_width="@dimen/_105sdp"
                             android:layout_height="wrap_content"
                             tools:listitem="@layout/project_card_2"
                             android:id="@+id/project_recycler"
@@ -58,16 +53,6 @@
             <TextView android:textSize="7dp" android:id="@+id/objective" android:fontFamily="@font/poppins_medium" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="Job Objective To secure a challenging and rewarding position as Android Developer with an established organization that can utilize my skills and experience. Designed and coded from specifications, analyzed, evaluated, tested and implemented complex software apps" android:layout_marginStart="@dimen/_10sdp" android:layout_marginEnd="@dimen/_5sdp"/>
             <TextView android:textSize="10dp" android:textColor="@color/black" android:fontFamily="@font/poppins_semi_bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="EXPERIENCE" android:layout_marginStart="@dimen/_10sdp"/>
             <View android:background="@drawable/yallowview" android:layout_width="@dimen/_22sdp" android:layout_height="2dp" android:layout_marginTop="@dimen/_5sdp" android:layout_marginStart="@dimen/_10sdp"/>
-<!--            <LinearLayout android:orientation="horizontal" android:id="@+id/ly_expAnderDate_first" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">-->
-<!--                <TextView android:textSize="7dp" android:id="@+id/join_id_anrson" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2020" android:layout_marginStart="@dimen/_10sdp"/>-->
-<!--                <View android:background="@drawable/blackline" android:layout_width="@dimen/_3sdp" android:layout_height="1dp" android:layout_marginTop="@dimen/_4sdp" android:layout_marginStart="@dimen/_1sdp" android:layout_marginEnd="@dimen/_1sdp"/>-->
-<!--                <TextView android:textSize="7dp" android:id="@+id/end_id_anderson" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2021"/>-->
-<!--                <TextView android:textSize="7dp" android:textStyle="bold" android:id="@+id/id_designation_andeson" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="Senior UX Designer" android:layout_marginStart="@dimen/_32sdp"/>-->
-<!--            </LinearLayout>-->
-<!--            <LinearLayout android:orientation="horizontal" android:id="@+id/ly_expAnderComnyNamefirst" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/_55sdp" android:layout_marginTop="@dimen/_5sdp">-->
-<!--                <TextView android:textSize="7dp" android:id="@+id/id_compnyname_andeson" android:layout_width="@dimen/_60sdp" android:layout_height="wrap_content" android:text="Company Name" android:layout_marginStart="@dimen/_10sdp"/>-->
-<!--                <TextView android:textSize="7dp" android:id="@+id/detaildescription_anderson" android:layout_width="match_parent" android:layout_height="match_parent" android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." android:layout_marginStart="@dimen/_17sdp" android:layout_marginEnd="@dimen/_5sdp"/>-->
-<!--            </LinearLayout>-->
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

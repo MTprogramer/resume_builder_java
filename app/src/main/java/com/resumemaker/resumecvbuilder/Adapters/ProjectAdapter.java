@@ -3,32 +3,42 @@ package com.resumemaker.resumecvbuilder.Adapters;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.resumemaker.resumecvbuilder.DB.SkillsRoom.ProjectRoom.ProjectsDao;
+import com.resumemaker.resumecvbuilder.DataModels.ProjectsData;
+import com.resumemaker.resumecvbuilder.DataModels.SkillsData;
 import com.resumemaker.resumecvbuilder.ProjectDBHandler;
 import com.resumemaker.resumecvbuilder.ProjectRecylerviewModel;
 import com.resumemaker.resumecvbuilder.R;
 
 import java.util.ArrayList;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.MyExperenceViewHOlder> {
-    static ArrayList<ProjectRecylerviewModel> list;
+    static ArrayList<ProjectsData> list;
     Dialog dialog;
     Context mContext;
-    ProjectRecylerviewModel modelRecylerview;
-    ProjectDBHandler projectDBHandler;
+    ProjectsData modelRecylerview;
+    ProjectsDao projectDBHandler;
+    private final Executor executor = Executors.newSingleThreadExecutor();
 
-    public ProjectAdapter(Context context, ArrayList<ProjectRecylerviewModel> arrayList) {
+    public ProjectAdapter(Context context, ArrayList<ProjectsData> arrayList , ProjectsDao projectDBHandler) {
         this.mContext = context;
         list = arrayList;
+        this.projectDBHandler = projectDBHandler;
     }
 
     public MyExperenceViewHOlder onCreateViewHolder(ViewGroup viewGroup, int i) {
@@ -44,71 +54,89 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.MyExpere
         Log.d("listsize", "listsize" + list.size());
         myExperenceViewHOlder.iv_delete.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                deteteDialogForSkill();
+                deleteDialogForSkill();
             }
+            private void deleteDialogForSkill() {
+                // Initialize dialog
+                dialog = new Dialog(mContext);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);  // Use Window.FEATURE_NO_TITLE for clarity
+                dialog.setCancelable(false);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0)); // Transparent background
+                dialog.setContentView(R.layout.deletdialog);
 
-            private void deteteDialogForSkill() {
-                ProjectAdapter.this.dialog = new Dialog(mContext);
-                ProjectAdapter.this.dialog.requestWindowFeature(1);
-                ProjectAdapter.this.dialog.setCancelable(false);
-                ProjectAdapter.this.dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-                ProjectAdapter.this.dialog.setContentView(R.layout.deletdialog);
-                 dialog.findViewById(R.id.lay_ok).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        ProjectAdapter.this.dialog.dismiss();
-                    }
+                // OK button (dismiss dialog)
+                dialog.findViewById(R.id.lay_ok).setOnClickListener(v -> dialog.dismiss());
+
+                // Cancel button (perform delete operation)
+                dialog.findViewById(R.id.ly_cancel).setOnClickListener(v -> {
+                    executor.execute(() -> {
+
+                        ProjectsData itemToDelete = list.get(i);
+
+                        projectDBHandler.delete(itemToDelete);
+
+                        // Update UI on the main thread
+
+                        new Handler(Looper.getMainLooper()).post(() -> {
+                            if (i < list.size()) {
+                                list.remove(i);  // Remove the item safely
+                                notifyItemRemoved(i);
+                                notifyItemRangeChanged(i, list.size());
+                                Toast.makeText(mContext, "project Deleted", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
+                            }
+                        });
+                    });
                 });
-                 dialog.findViewById(R.id.ly_cancel).setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View view) {
-                        Toast.makeText(ProjectAdapter.this.mContext, "Project Field Deleted", 0).show();
-                        ProjectAdapter.this.projectDBHandler = new ProjectDBHandler(view.getContext());
-                        ProjectAdapter.this.projectDBHandler.deleteCourse(myExperenceViewHOlder.project_name.getText().toString());
-                        ProjectAdapter.list.remove(i);
-                        notifyItemRemoved(i);
-                        ProjectAdapter.this.dialog.dismiss();
-                    }
-                });
-                ProjectAdapter.this.dialog.show();
+                // Show dialog
+                dialog.show();
             }
-
         });
         myExperenceViewHOlder.iv_update.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 updateDialog();
             }
-
             private void updateDialog() {
                 dialog = new Dialog(mContext);
-                dialog.requestWindowFeature(1);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);  // Improved constant readability
                 dialog.setCancelable(false);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0)); // Transparent background
                 dialog.setContentView(R.layout.project_layout);
-                final EditText editText = (EditText) dialog.findViewById(R.id.project_name);
-                final EditText editText2 = (EditText) dialog.findViewById(R.id.project_url);
-                editText.setText(modelRecylerview.getProjectName());
-                editText2.setText(modelRecylerview.getProjectUrl());
-                dialog.findViewById(R.id.id_cancel).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
-                dialog.findViewById(R.id.id_ok).setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View view) {
-                        Toast.makeText(mContext, "updating yor data", Toast.LENGTH_SHORT).show();
-                        projectDBHandler = new ProjectDBHandler(view.getContext());
-                        String obj = editText.getText().toString();
-                        String obj2 = editText2.getText().toString();
-//                        ProjectAdapter.this.projectDBHandler.updateCourse(obj, obj2);
-                        ProjectAdapter.list.set(i, new ProjectRecylerviewModel(obj, obj2));
-                        ProjectAdapter.this.notifyItemChanged(i);;
-                        ProjectAdapter.this.dialog.dismiss();
-                    }
-                });
-                ProjectAdapter.this.dialog.show();
-            }
 
+                // Initialize input fields
+                final EditText editText = dialog.findViewById(R.id.project_name);
+                final EditText editText2 = dialog.findViewById(R.id.project_url);
+                editText.setText(list.get(i).getProjectName());
+                editText2.setText(list.get(i).getProjectUrl());
+
+                // Cancel button listener
+                dialog.findViewById(R.id.id_cancel).setOnClickListener(v -> dialog.dismiss());
+
+                // Confirm button listener
+                dialog.findViewById(R.id.id_ok).setOnClickListener(view -> {
+                    String projectName = editText.getText().toString().trim();
+                    String projectUrl = editText2.getText().toString().trim();
+                    if (projectName.isEmpty() || projectUrl.isEmpty()) {
+                        Toast.makeText(mContext, "Field can't be empty", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    executor.execute(() -> {
+                        // Prepare updated data
+                        ProjectsData projectData = new ProjectsData(projectName, projectUrl);
+                        projectData.setId(modelRecylerview.getId());
+                        // Update database
+                        projectDBHandler.update(projectData);
+                        // Update UI on main thread
+                        new Handler(Looper.getMainLooper()).post(() -> {
+                            list.set(i, projectData);
+                            notifyItemChanged(i);
+                            Toast.makeText(mContext, "Your data updated", Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+                        });
+                    });
+                });
+                dialog.show();
+            }
         });
     }
 

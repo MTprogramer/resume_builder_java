@@ -16,10 +16,10 @@
                 <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
                     <ImageView android:layout_width="@dimen/_15sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_5sdp" android:src="@drawable/phonemarko" android:layout_marginStart="@dimen/_10sdp"/>
                     <ImageView android:layout_width="@dimen/_15sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_5sdp" android:src="@drawable/emailmarko" android:layout_marginStart="@dimen/_10sdp"/>
-                    <ImageView android:layout_width="@dimen/_15sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_5sdp" android:src="@drawable/bgadressrarko" android:layout_marginStart="@dimen/_10sdp"/>
+                    <ImageView android:layout_width="@dimen/_15sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_15sdp" android:src="@drawable/bgadressrarko" android:layout_marginStart="@dimen/_10sdp"/>
                 </LinearLayout>
                 <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/_10sdp">
-                    <TextView android:textSize="7dp" android:textColor="@color/white" android:id="@+id/phoneNumber" android:fontFamily="@font/poppins_light" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="+0096655121"/>
+                    <TextView android:textSize="7dp" android:textColor="@color/white" android:id="@+id/phoneNumber" android:fontFamily="@font/poppins_light" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_8sdp" android:text="+0096655121"/>
                     <TextView android:textSize="7dp" android:textColor="@color/white" android:id="@+id/email" android:fontFamily="@font/poppins_light" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_7sdp" android:text="cvmakera@gmail.com"/>
                     <TextView android:textSize="7dp" android:textColor="@color/white" android:id="@+id/adress" android:fontFamily="@font/poppins_light" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_3sdp" android:text="Your Street address/Town/City/Zip"/>
                 </LinearLayout>
@@ -42,7 +42,8 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="@dimen/_110sdp"
                     android:layout_height="wrap_content"
-                    tools:listitem="@layout/project_card"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    tools:listitem="@layout/project_card_3"
                     android:id="@+id/project_recycler"
                     />
             </LinearLayout>
@@ -59,20 +60,10 @@
             <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">
                 <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
 
-<!--                    <LinearLayout android:orientation="vertical" android:id="@+id/ly_kivenExpdatefirst" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/_10sdp">-->
-<!--                        <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/designation_marko1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lead Web Designer"/>-->
-<!--                        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">-->
-<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/jobstartmarko1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2017"/>-->
-<!--                            <View android:background="@drawable/blackline" android:layout_width="@dimen/_3sdp" android:layout_height="1dp" android:layout_marginTop="@dimen/_4sdp" android:layout_marginStart="@dimen/_3sdp" android:layout_marginEnd="@dimen/_1sdp"/>-->
-<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/jobendmarko1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2018"/>-->
-<!--                        </LinearLayout>-->
-<!--                    </LinearLayout>-->
-
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        tools:listitem="@layout/experience_card_4"
-                        android:layout_marginEnd="@dimen/_20sdp"
+                        tools:listitem="@layout/education_card_4"
                         android:id="@+id/experience_recycler"
                         tools:itemCount="3"
                         />
@@ -86,43 +77,10 @@
                 <TextView android:textSize="10dp" android:textColor="#3aa3c7" android:fontFamily="@font/poppins_semi_bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="EDUCATION"/>
                 <TextView android:textSize="@dimen/_10sdp" android:textStyle="bold" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="......................................" android:layout_marginStart="@dimen/_5sdp"/>
             </LinearLayout>
-<!--            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">-->
-<!--                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">-->
-<!--                    <LinearLayout android:orientation="vertical" android:id="@+id/lyEduKevenfirstUname" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="@dimen/_65sdp">-->
-<!--                        <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/universtynamemarko1" android:layout_width="@dimen/_70sdp" android:layout_height="wrap_content" android:text="Name Of University"/>-->
-<!--                        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">-->
-<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/completionmarkoDate1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2017"/>-->
-<!--                        </LinearLayout>-->
-<!--                    </LinearLayout>-->
-<!--                    <LinearLayout android:orientation="vertical" android:id="@+id/lyEduKevensecondUname" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/_55sdp">-->
-<!--                        <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/universtynamemarko2" android:layout_width="@dimen/_70sdp" android:layout_height="wrap_content" android:text="Name Of University"/>-->
-<!--                        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">-->
-<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/completionmarkoDate2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2017"/>-->
-<!--                        </LinearLayout>-->
-<!--                    </LinearLayout>-->
-<!--                </LinearLayout>-->
-<!--                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">-->
-<!--                    <LinearLayout android:orientation="horizontal" android:id="@+id/lyEdukevenfirstDetail" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="@dimen/_65sdp">-->
-<!--                        <View android:background="@drawable/recview" android:layout_width="@dimen/_3sdp" android:layout_height="@dimen/_35sdp" android:layout_marginTop="@dimen/_5sdp" android:layout_marginStart="@dimen/_5sdp"/>-->
-<!--                        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:layout_marginStart="@dimen/_5sdp">-->
-<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/degreemarko1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ART CREATIVE SOLUATION"/>-->
-<!--                            <TextView android:textSize="7dp" android:id="@+id/degreedescrpmarko1" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit ipsum dolor sit amet, consectetur adipiscing elit."/>-->
-<!--                        </LinearLayout>-->
-<!--                    </LinearLayout>-->
-<!--                    <LinearLayout android:orientation="horizontal" android:id="@+id/lyEdukevensecondDetail" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="@dimen/_70sdp" android:layout_marginTop="@dimen/_5sdp">-->
-<!--                        <View android:background="@drawable/recview" android:layout_width="@dimen/_3sdp" android:layout_height="@dimen/_35sdp" android:layout_marginTop="@dimen/_5sdp" android:layout_marginStart="@dimen/_5sdp"/>-->
-<!--                        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="@dimen/_60sdp" android:layout_marginTop="@dimen/_5sdp" android:layout_marginStart="@dimen/_5sdp">-->
-<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/degreemarko2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ART CREATIVE SOLUATION"/>-->
-<!--                            <TextView android:textSize="7dp" android:id="@+id/degreedescrpmarko2" android:layout_width="match_parent" android:layout_height="match_parent" android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet faucibus adipiscing elit. Mauris sit amet faucibus"/>-->
-<!--                        </LinearLayout>-->
-<!--                    </LinearLayout>-->
-<!--                </LinearLayout>-->
-<!--            </LinearLayout>-->
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_20sdp"
                 tools:listitem="@layout/education_card_4"
                 android:id="@+id/education_recycler"
                 tools:itemCount="3"

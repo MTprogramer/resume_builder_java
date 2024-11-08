@@ -190,7 +190,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_190sdp"
+        android:layout_height="match_parent"
         android:layout_below="@+id/lynestedids"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp">
@@ -198,6 +198,6 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recylewview"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_190sdp" />
+            android:layout_height="match_parent" />
     </LinearLayout>
 </RelativeLayout>

@@ -49,7 +49,8 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="@dimen/_120sdp"
                         android:layout_height="wrap_content"
-                        tools:listitem="@layout/project_card"
+                        tools:listitem="@layout/project_card_3"
+                        android:layout_marginStart="@dimen/_10sdp"
                         android:id="@+id/project_recycler"
                         tools:itemCount="3"
                         />
@@ -65,12 +66,6 @@
                 <TextView android:textSize="10dp" android:textColor="@color/white" android:fontFamily="@font/poppins_semi_bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_2sdp" android:text="EDUCATION AND QUALIFICATION" android:layout_marginStart="@dimen/_5sdp"/>
             </LinearLayout>
             <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/_10sdp" android:layout_marginEnd="@dimen/_5sdp">
-<!--                <LinearLayout android:orientation="vertical" android:id="@+id/lyjohnedufirst" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/_72sdp">-->
-<!--                    <TextView android:textSize="8dp" android:textStyle="bold" android:textColor="@color/black" android:id="@+id/completion_jhon1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="2017"/>-->
-<!--                    <TextView android:textSize="8dp" android:textStyle="bold" android:textColor="@color/black" android:id="@+id/universtyname_jhon1" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_2sdp" android:text="Name Of University"/>-->
-<!--                    <TextView android:textSize="8dp" android:textStyle="bold" android:textColor="@color/black" android:id="@+id/degree_jhon1" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Art Creative Soluation"/>-->
-<!--                    <TextView android:textSize="7dp" android:textColor="@color/black" android:id="@+id/degreedescrp_jhon1" android:layout_width="match_parent" android:layout_height="match_parent" android:text="Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit  ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>-->
-<!--                </LinearLayout>-->
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -84,16 +79,6 @@
             </LinearLayout>
             <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/_5sdp" android:layout_marginStart="@dimen/_10sdp" android:layout_marginEnd="@dimen/_5sdp">
                 <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
-<!--                    <LinearLayout android:orientation="vertical" android:id="@+id/lyexpjohnfirst" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/_70sdp">-->
-<!--                        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">-->
-<!--                            <TextView android:textSize="8dp" android:textStyle="bold" android:textColor="@color/black" android:id="@+id/jobstart_jhon1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2017"/>-->
-<!--                            <View android:background="@drawable/blackline" android:layout_width="@dimen/_3sdp" android:layout_height="1dp" android:layout_marginTop="@dimen/_5sdp"/>-->
-<!--                            <TextView android:textSize="8dp" android:textStyle="bold" android:textColor="@color/black" android:id="@+id/jobend_jhon1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2018"/>-->
-<!--                        </LinearLayout>-->
-<!--                        <TextView android:textSize="8dp" android:textStyle="bold" android:textColor="@color/black" android:id="@+id/designation_jhon1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_2sdp" android:text="Lead Web Designer"/>-->
-<!--                        <TextView android:textSize="8dp" android:textStyle="bold" android:textColor="@color/black" android:id="@+id/compny_jhon1" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Art Creative Soluation"/>-->
-<!--                        <TextView android:textSize="7dp" android:textColor="@color/black" android:id="@+id/jobdescption_jhon1" android:layout_width="match_parent" android:layout_height="match_parent" android:text="Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit  ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit"/>-->
-<!--                    </LinearLayout>-->
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

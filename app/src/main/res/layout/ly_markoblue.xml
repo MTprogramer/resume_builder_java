@@ -16,14 +16,11 @@
                 <ImageView android:id="@+id/iviconphonekeven" android:layout_width="@dimen/_10sdp" android:layout_height="@dimen/_10sdp" android:layout_marginTop="@dimen/_5sdp" android:src="@drawable/markoblue" android:layout_marginStart="@dimen/_10sdp" app:layout_constraintLeft_toLeftOf="parent"/>
                 <TextView android:textSize="8dp" android:id="@+id/phoneNumber" android:fontFamily="@font/poppins_medium" android:layout_width="@dimen/_90sdp" android:layout_height="wrap_content" android:text="+0096655121" android:layout_marginEnd="@dimen/_3sdp" app:layout_constraintBottom_toBottomOf="@+id/iviconphonekeven" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="@+id/iviconphonekeven"/>
                 <ImageView android:id="@+id/iviconemailkeven" android:layout_width="@dimen/_10sdp" android:layout_height="@dimen/_10sdp" android:layout_marginTop="@dimen/_5sdp" android:src="@drawable/emailblues" android:layout_marginStart="@dimen/_10sdp" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintTop_toBottomOf="@+id/iviconphonekeven"/>
-                <TextView android:textSize="8dp" android:id="@+id/email" android:fontFamily="@font/poppins_medium" android:layout_width="@dimen/_90sdp" android:layout_height="wrap_content" android:text="cvmaker@gmail.com" android:layout_marginEnd="@dimen/_3sdp" app:layout_constraintBottom_toBottomOf="@+id/iviconemailkeven" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="@+id/iviconemailkeven"/>
-                <ImageView android:id="@+id/ivadresskeven" android:layout_width="@dimen/_10sdp" android:layout_height="@dimen/_10sdp" android:layout_marginTop="@dimen/_5sdp" android:src="@drawable/loctionblues" android:layout_marginStart="@dimen/_10sdp" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintTop_toBottomOf="@+id/iviconemailkeven"/>
-                <TextView android:textSize="8dp" android:id="@+id/adress" android:fontFamily="@font/poppins_medium" android:layout_width="@dimen/_90sdp" android:layout_height="wrap_content" android:text="Your Street address/Town/City/Zip" android:layout_marginEnd="@dimen/_3sdp" app:layout_constraintBottom_toBottomOf="@+id/ivadresskeven" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="@+id/ivadresskeven"/>
+                <TextView android:textSize="8dp" android:id="@+id/email" android:fontFamily="@font/poppins_medium" android:layout_width="@dimen/_90sdp" android:layout_marginTop="@dimen/_5sdp" android:layout_height="wrap_content" android:text="cvmaker@gmail.com" android:layout_marginEnd="@dimen/_3sdp" app:layout_constraintBottom_toBottomOf="@+id/iviconemailkeven" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="@+id/iviconemailkeven"/>
+                <ImageView android:id="@+id/ivadresskeven" android:layout_width="@dimen/_10sdp" android:layout_height="@dimen/_10sdp" android:layout_marginTop="@dimen/_10sdp" android:src="@drawable/loctionblues" android:layout_marginStart="@dimen/_10sdp" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintTop_toBottomOf="@+id/iviconemailkeven"/>
+                <TextView android:textSize="8dp" android:id="@+id/adress" android:fontFamily="@font/poppins_medium" android:layout_width="@dimen/_90sdp" android:layout_marginTop="@dimen/_15sdp" android:layout_height="wrap_content" android:text="Your Street address/Town/City/Zip" android:layout_marginEnd="@dimen/_3sdp" app:layout_constraintBottom_toBottomOf="@+id/ivadresskeven" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="@+id/ivadresskeven"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <TextView android:textSize="10dp" android:textColor="@color/black" android:fontFamily="@font/poppins_semi_bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_15sdp" android:text="SKILLS" android:layout_marginStart="@dimen/_10sdp"/>
-<!--            <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="@dimen/_120sdp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">-->
-<!--                <TextView android:textSize="8dp" android:id="@+id/skill1marko_blue" android:layout_width="@dimen/_45sdp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp" android:text="Photoshop" android:inputType="textMultiLine" android:layout_marginStart="@dimen/_10sdp" app:layout_constraintLeft_toLeftOf="parent"/>-->
-<!--                <SeekBar android:id="@+id/seekmakoblue1" android:layout_width="@dimen/_70sdp" android:layout_height="@dimen/_5sdp" android:layout_marginTop="@dimen/_5sdp" android:progressTint="@color/blue" android:thumbTint="@color/blue" app:layout_constraintBottom_toBottomOf="@+id/skill1marko_blue" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="@+id/skill1marko_blue"/>-->
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="@dimen/_120sdp"
                 android:layout_height="wrap_content"
@@ -38,6 +35,7 @@
                     android:layout_width="@dimen/_120sdp"
                     android:layout_height="wrap_content"
                     tools:listitem="@layout/project_card_2"
+                    android:layout_marginStart="@dimen/_10sdp"
                     android:id="@+id/project_recycler"
                     tools:itemCount="3"
                     />
@@ -55,57 +53,6 @@
                 <TextView android:textSize="10dp" android:textColor="@color/black" android:fontFamily="@font/poppins_semi_bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="EXPERIENCE"/>
                 <TextView android:textSize="@dimen/_10sdp" android:textStyle="bold" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=".........................................." android:layout_marginStart="@dimen/_5sdp"/>
             </LinearLayout>
-<!--            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_10sdp">-->
-<!--                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">-->
-<!--                    <LinearLayout android:orientation="vertical" android:id="@+id/lymarkExpdatefirst" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/_50sdp">-->
-<!--                        <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/designation_marko1_blue" android:layout_width="@dimen/_60sdp" android:layout_height="wrap_content" android:text="Lead Web Designer"/>-->
-<!--                        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">-->
-<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/jobstartmarko1_blue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2017"/>-->
-<!--                            <View android:background="@drawable/blackline" android:layout_width="@dimen/_3sdp" android:layout_height="1dp" android:layout_marginTop="@dimen/_5sdp"/>-->
-<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/jobendmarko1_blue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2018"/>-->
-<!--                        </LinearLayout>-->
-<!--                    </LinearLayout>-->
-<!--                    <LinearLayout android:orientation="vertical" android:id="@+id/lymarkExpdatesecond" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/_50sdp">-->
-<!--                        <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/designation_marko2_blue" android:layout_width="@dimen/_60sdp" android:layout_height="wrap_content" android:text="Lead Web Designer"/>-->
-<!--                        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">-->
-<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/jobstartmarko2_blue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2017"/>-->
-<!--                            <View android:background="@drawable/blackline" android:layout_width="@dimen/_3sdp" android:layout_height="1dp" android:layout_marginTop="@dimen/_5sdp"/>-->
-<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/jobendmarko2_blue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2018"/>-->
-<!--                        </LinearLayout>-->
-<!--                    </LinearLayout>-->
-<!--                    <LinearLayout android:orientation="vertical" android:id="@+id/lymarkExpdatethird" android:visibility="visible" android:layout_width="match_parent" android:layout_height="@dimen/_50sdp">-->
-<!--                        <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/designation_marko3_blue" android:layout_width="@dimen/_60sdp" android:layout_height="wrap_content" android:text="Lead Web Designer"/>-->
-<!--                        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_5sdp">-->
-<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/jobstartmarko3_blue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2017"/>-->
-<!--                            <View android:background="@drawable/blackline" android:layout_width="@dimen/_3sdp" android:layout_height="1dp" android:layout_marginTop="@dimen/_5sdp"/>-->
-<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/jobendmarko3_blue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2018"/>-->
-<!--                        </LinearLayout>-->
-<!--                    </LinearLayout>-->
-<!--                </LinearLayout>-->
-<!--                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">-->
-<!--                    <LinearLayout android:orientation="horizontal" android:id="@+id/lymarkExpdetalfirst" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="@dimen/_50sdp">-->
-<!--                        <View android:background="@drawable/recview" android:layout_width="@dimen/_3sdp" android:layout_height="@dimen/_35sdp" android:layout_marginStart="@dimen/_2sdp"/>-->
-<!--                        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/_5sdp">-->
-<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/compnymarko1_blue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ART CREATIVE SOLUATION" android:singleLine="true"/>-->
-<!--                            <TextView android:textSize="7dp" android:id="@+id/jobdescptionmarko1_blue" android:layout_width="match_parent" android:layout_height="match_parent" android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.dolor sit amet,ipsum dolor sit amet, consectetur adipiscing elit.dolor sit amet"/>-->
-<!--                        </LinearLayout>-->
-<!--                    </LinearLayout>-->
-<!--                    <LinearLayout android:orientation="horizontal" android:id="@+id/lymarkExpdetalsecond" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="@dimen/_50sdp">-->
-<!--                        <View android:background="@drawable/recview" android:layout_width="@dimen/_3sdp" android:layout_height="@dimen/_35sdp" android:layout_marginTop="@dimen/_5sdp" android:layout_marginStart="@dimen/_5sdp"/>-->
-<!--                        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/_8sdp" android:layout_marginStart="@dimen/_5sdp">-->
-<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/compnymarko2_blue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ART CREATIVE SOLUATION" android:singleLine="true"/>-->
-<!--                            <TextView android:textSize="7dp" android:id="@+id/jobdescptionmarko2_blue" android:layout_width="match_parent" android:layout_height="match_parent" android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.dolor sit amet,ipsum dolor sit amet, consectetur adipiscing elit.dolor sit amet"/>-->
-<!--                        </LinearLayout>-->
-<!--                    </LinearLayout>-->
-<!--                    <LinearLayout android:orientation="horizontal" android:id="@+id/lymarkExpdetalthird" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="@dimen/_50sdp">-->
-<!--                        <View android:background="@drawable/recview" android:layout_width="@dimen/_3sdp" android:layout_height="@dimen/_35sdp" android:layout_marginTop="@dimen/_5sdp" android:layout_marginStart="@dimen/_5sdp"/>-->
-<!--                        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="@dimen/_40sdp" android:layout_marginTop="@dimen/_5sdp" android:layout_marginStart="@dimen/_5sdp">-->
-<!--                            <TextView android:textSize="8dp" android:textColor="@color/black" android:id="@+id/compnymarko3_blue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ART CREATIVE SOLUATION" android:singleLine="true"/>-->
-<!--                            <TextView android:textSize="7dp" android:id="@+id/jobdescptionmarko3_blue" android:layout_width="match_parent" android:layout_height="match_parent" android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet faucibus,ipsum dolor sit amet, consectetur adipiscing elit.dolor sit amet"/>-->
-<!--                        </LinearLayout>-->
-<!--                    </LinearLayout>-->
-<!--                </LinearLayout>-->
-<!--            </LinearLayout>-->
 
 
             <androidx.recyclerview.widget.RecyclerView

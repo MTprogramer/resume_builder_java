@@ -141,22 +141,23 @@
                     android:paddingBottom="@dimen/_2sdp"
                     android:src="@drawable/cvsecond" />
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/tamplet6"
-                    android:layout_width="@dimen/_40sdp"
-                    android:layout_height="@dimen/_50sdp"
-                    android:paddingBottom="@dimen/_2sdp"
-                    android:src="@drawable/cvthird" />
 
                 <ImageView
-                    android:id="@+id/tamplet7"
+                    android:id="@+id/tamplet6"
                     android:layout_width="@dimen/_40sdp"
                     android:layout_height="@dimen/_50sdp"
                     android:paddingBottom="@dimen/_2sdp"
                     android:src="@drawable/cvfourth" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/tamplet8"
+                    android:id="@+id/tamplet5"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:src="@drawable/cvthird" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/tamplet7"
                     android:layout_width="@dimen/_40sdp"
                     android:layout_height="@dimen/_45sdp"
                     android:layout_margin="@dimen/_2sdp"
@@ -164,21 +165,21 @@
                     android:src="@drawable/cvsixth" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/tamplet9"
+                    android:id="@+id/tamplet8"
                     android:layout_width="@dimen/_40sdp"
                     android:layout_height="@dimen/_45sdp"
                     android:paddingBottom="@dimen/_2sdp"
                     android:src="@drawable/cvnine" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/tamplet10"
+                    android:id="@+id/tamplet9"
                     android:layout_width="@dimen/_40sdp"
                     android:layout_height="@dimen/_45sdp"
                     android:paddingBottom="@dimen/_2sdp"
                     android:src="@drawable/cvseven" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/tamplet11"
+                    android:id="@+id/tamplet10"
                     android:layout_width="@dimen/_40sdp"
                     android:layout_height="@dimen/_45sdp"
                     android:paddingBottom="@dimen/_2sdp"

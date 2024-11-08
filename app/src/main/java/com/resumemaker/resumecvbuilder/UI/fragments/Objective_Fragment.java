@@ -8,6 +8,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import androidx.fragment.app.Fragment;
 
+import com.resumemaker.resumecvbuilder.DB.SkillsRoom.PersonalInfoRoom.PersonalInfoDao;
+import com.resumemaker.resumecvbuilder.DB.SkillsRoom.ResumeDatabase;
+import com.resumemaker.resumecvbuilder.DataModels.PersonalInfo;
 import com.resumemaker.resumecvbuilder.ObjectiveDBHandler;
 import com.resumemaker.resumecvbuilder.Objective_Model;
 import com.resumemaker.resumecvbuilder.R;
@@ -15,23 +18,30 @@ import com.resumemaker.resumecvbuilder.UI.Create_CV;
 import com.resumemaker.resumecvbuilder.callbackes.ObjectCallback;
 
 import java.util.ArrayList;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class Objective_Fragment extends Fragment {
-    private ObjectiveDBHandler dbHandler;
+    private PersonalInfoDao dbHandler;
     EditText edtObj;
     LinearLayout linearLayout_obj;
     String objObeective;
-    ArrayList<Objective_Model> objectiveModelArrayList;
+    PersonalInfo objectiveModelArrayList;
+    private final Executor executor = Executors.newSingleThreadExecutor();
+
 
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.fragment_objective_, viewGroup, false);
 
         Create_CV.viewPager.setSwipeEnabled(false);
         this.edtObj = (EditText) inflate.findViewById(R.id.cvobj_id);
-        this.objectiveModelArrayList = new ArrayList<>();
         ObjectiveDBHandler objectiveDBHandler = new ObjectiveDBHandler(getContext());
-        this.dbHandler = objectiveDBHandler;
-        this.objectiveModelArrayList = objectiveDBHandler.readCourses();
+        this.dbHandler = ResumeDatabase.getInstance(getContext()).personalInfoDao();
+
+        executor.execute(()->{
+            this.objectiveModelArrayList = dbHandler.getPersonalInfo();
+        });
+
         this.linearLayout_obj = (LinearLayout) inflate.findViewById(R.id.ly_editcv);
         this.edtObj.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             public void onFocusChange(View view, boolean z) {
@@ -55,7 +65,7 @@ public class Objective_Fragment extends Fragment {
                     Create_CV.isFilled = false;
                     return;
                 }
-                insert(objectiveModelArrayList);
+                insert();
                 Create_CV.isFilled = true;
             }
         });
@@ -64,21 +74,26 @@ public class Objective_Fragment extends Fragment {
 
     public void onResume() {
         super.onResume();
-        if (this.objectiveModelArrayList.size() > 0) {
-            this.edtObj.setText(this.objectiveModelArrayList.get(0).getCvobective());
+        if (this.objectiveModelArrayList != null) {
+            this.edtObj.setText(this.objectiveModelArrayList.getObj());
         }
     }
 
-    public void insert(ArrayList<Objective_Model> arrayList) {
-        if (this.dbHandler.getDataCount() > 0) {
-            String cvobective = this.dbHandler.readCourses().get(0).getCvobective();
-            this.objObeective = cvobective;
-            this.dbHandler.updateCourse(cvobective, this.edtObj.getText().toString());
-            return;
-        }
-        String obj = this.edtObj.getText().toString();
-        this.objObeective = obj;
-        this.dbHandler.addNewCourse(obj);
-        this.edtObj.setText("");
+    public void insert() {
+//        if (this.dbHandler.getObj().isEmpty()) {
+//            String cvobective = this.dbHandler.getObj();
+//            this.objObeective = cvobective;
+//            this.dbHandler.updateObj(objObeective);
+//            return;
+//        }
+        executor.execute(() -> {
+            String obj = this.edtObj.getText().toString();
+            this.objObeective = obj;
+            this.dbHandler.updateObj(obj);
+            // Update UI on the main thread
+            requireActivity().runOnUiThread(() -> this.edtObj.setText(""));
+        });
+
+
     }
 }

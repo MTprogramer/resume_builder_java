@@ -21,13 +21,15 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
+                        android:layout_marginStart="-15dp"
                         tools:listitem="@layout/education_card_1"
                         android:id="@+id/education_recycler"/>
                     <TextView android:textSize="10dp" android:textColor="@color/black" android:fontFamily="@font/poppins_semi_bold" android:background="@drawable/bgforall"  android:layout_width="@dimen/_80sdp" android:layout_height="@dimen/_15sdp" android:layout_marginTop="@dimen/_5sdp" android:text="Projects" android:paddingStart="@dimen/_20sdp"/>
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        tools:listitem="@layout/project_card"
+                        tools:listitem="@layout/project_card_3"
+                        android:layout_marginStart="@dimen/_5sdp"
                         android:id="@+id/project_recycler"/>
                 </LinearLayout>
             </LinearLayout>
@@ -137,7 +139,6 @@
                     android:orientation="horizontal"
                     tools:listitem="@layout/skill_card_2"
                     android:id="@+id/skills_recyler"/>
-
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
