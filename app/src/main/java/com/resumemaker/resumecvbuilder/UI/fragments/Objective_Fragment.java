@@ -11,13 +11,10 @@ import androidx.fragment.app.Fragment;
 import com.resumemaker.resumecvbuilder.DB.SkillsRoom.PersonalInfoRoom.PersonalInfoDao;
 import com.resumemaker.resumecvbuilder.DB.SkillsRoom.ResumeDatabase;
 import com.resumemaker.resumecvbuilder.DataModels.PersonalInfo;
-import com.resumemaker.resumecvbuilder.ObjectiveDBHandler;
-import com.resumemaker.resumecvbuilder.Objective_Model;
 import com.resumemaker.resumecvbuilder.R;
 import com.resumemaker.resumecvbuilder.UI.Create_CV;
 import com.resumemaker.resumecvbuilder.callbackes.ObjectCallback;
 
-import java.util.ArrayList;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -35,7 +32,6 @@ public class Objective_Fragment extends Fragment {
 
         Create_CV.viewPager.setSwipeEnabled(false);
         this.edtObj = (EditText) inflate.findViewById(R.id.cvobj_id);
-        ObjectiveDBHandler objectiveDBHandler = new ObjectiveDBHandler(getContext());
         this.dbHandler = ResumeDatabase.getInstance(getContext()).personalInfoDao();
 
         executor.execute(()->{

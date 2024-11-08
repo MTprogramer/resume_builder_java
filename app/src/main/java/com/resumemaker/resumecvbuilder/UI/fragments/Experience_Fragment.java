@@ -21,18 +21,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.resumemaker.resumecvbuilder.Adapters.ExperienceAdapter;
 import com.resumemaker.resumecvbuilder.DB.SkillsRoom.ExperienceRoom.ExperienceDao;
 import com.resumemaker.resumecvbuilder.DB.SkillsRoom.ResumeDatabase;
-import com.resumemaker.resumecvbuilder.DataModels.EducationData;
 import com.resumemaker.resumecvbuilder.DataModels.ExperienceData;
-import com.resumemaker.resumecvbuilder.ExperienceDBHandler;
-import com.resumemaker.resumecvbuilder.ExperienceRecylerviewModel;
 import com.resumemaker.resumecvbuilder.R;
 import com.resumemaker.resumecvbuilder.UI.Create_CV;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.Executor;

@@ -14,16 +14,12 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.resumemaker.resumecvbuilder.DB.SkillsRoom.EducationRoom.EducationDao;
 import com.resumemaker.resumecvbuilder.DataModels.EducationData;
-import com.resumemaker.resumecvbuilder.DataModels.SkillsData;
-import com.resumemaker.resumecvbuilder.EducationDBHandler;
-import com.resumemaker.resumecvbuilder.EducationRecylerviewModel;
 import com.resumemaker.resumecvbuilder.R;
 
 import java.util.ArrayList;

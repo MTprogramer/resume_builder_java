@@ -23,12 +23,9 @@ import com.resumemaker.resumecvbuilder.Adapters.EducationAdapter;
 import com.resumemaker.resumecvbuilder.DB.SkillsRoom.EducationRoom.EducationDao;
 import com.resumemaker.resumecvbuilder.DB.SkillsRoom.ResumeDatabase;
 import com.resumemaker.resumecvbuilder.DataModels.EducationData;
-import com.resumemaker.resumecvbuilder.EducationDBHandler;
-import com.resumemaker.resumecvbuilder.EducationRecylerviewModel;
 import com.resumemaker.resumecvbuilder.R;
 import com.resumemaker.resumecvbuilder.UI.Create_CV;
 
-import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;

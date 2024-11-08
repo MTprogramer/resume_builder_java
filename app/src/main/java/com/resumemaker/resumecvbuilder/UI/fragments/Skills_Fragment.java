@@ -20,12 +20,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.resumemaker.resumecvbuilder.DB.SkillsRoom.ResumeDatabase;
 import com.resumemaker.resumecvbuilder.DB.SkillsRoom.SkillsDao;
-import com.resumemaker.resumecvbuilder.DataModels.ExperienceData;
 import com.resumemaker.resumecvbuilder.DataModels.SkillsData;
 import com.resumemaker.resumecvbuilder.R;
 import com.resumemaker.resumecvbuilder.Adapters.SkillAdapter;
-import com.resumemaker.resumecvbuilder.SkillDBHandler;
-import com.resumemaker.resumecvbuilder.SkillRecylerviewModel;
 import com.resumemaker.resumecvbuilder.UI.Create_CV;
 
 import java.util.ArrayList;

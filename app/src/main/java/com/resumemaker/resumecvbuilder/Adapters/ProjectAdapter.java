@@ -18,9 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.resumemaker.resumecvbuilder.DB.SkillsRoom.ProjectRoom.ProjectsDao;
 import com.resumemaker.resumecvbuilder.DataModels.ProjectsData;
-import com.resumemaker.resumecvbuilder.DataModels.SkillsData;
-import com.resumemaker.resumecvbuilder.ProjectDBHandler;
-import com.resumemaker.resumecvbuilder.ProjectRecylerviewModel;
 import com.resumemaker.resumecvbuilder.R;
 
 import java.util.ArrayList;

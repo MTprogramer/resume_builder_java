@@ -11,8 +11,6 @@ import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,11 +27,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.resumemaker.resumecvbuilder.Adapters.EducationAdapter;
 import com.resumemaker.resumecvbuilder.Adapters.EducationAdapterCv;
 import com.resumemaker.resumecvbuilder.Adapters.ExperienceAdapterCv;
 import com.resumemaker.resumecvbuilder.Adapters.ProjectsAdapterCv;
-import com.resumemaker.resumecvbuilder.Adapters.SkillAdapter;
 import com.resumemaker.resumecvbuilder.Adapters.SkillsAdapterCv;
 import com.resumemaker.resumecvbuilder.DB.SkillsRoom.ResumeDatabase;
 import com.resumemaker.resumecvbuilder.DataModels.EducationData;
@@ -41,19 +37,7 @@ import com.resumemaker.resumecvbuilder.DataModels.ExperienceData;
 import com.resumemaker.resumecvbuilder.DataModels.PersonalInfo;
 import com.resumemaker.resumecvbuilder.DataModels.ProjectsData;
 import com.resumemaker.resumecvbuilder.DataModels.SkillsData;
-import com.resumemaker.resumecvbuilder.EducationDBHandler;
-import com.resumemaker.resumecvbuilder.EducationRecylerviewModel;
-import com.resumemaker.resumecvbuilder.ExperienceDBHandler;
-import com.resumemaker.resumecvbuilder.ExperienceRecylerviewModel;
-import com.resumemaker.resumecvbuilder.ObjectiveDBHandler;
-import com.resumemaker.resumecvbuilder.Objective_Model;
-import com.resumemaker.resumecvbuilder.PersonalDetailsModel;
-import com.resumemaker.resumecvbuilder.PersonalInfoDBHandler;
-import com.resumemaker.resumecvbuilder.ProjectDBHandler;
-import com.resumemaker.resumecvbuilder.ProjectRecylerviewModel;
 import com.resumemaker.resumecvbuilder.R;
-import com.resumemaker.resumecvbuilder.SkillDBHandler;
-import com.resumemaker.resumecvbuilder.SkillRecylerviewModel;
 import com.resumemaker.resumecvbuilder.UI.Create_CV;
 import com.resumemaker.resumecvbuilder.UI.CvViewer;
 import com.resumemaker.resumecvbuilder.UI.MainActivity;
@@ -65,7 +49,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -78,7 +61,6 @@ public class Template_Fragment extends Fragment {
     protected boolean mIsVisibleToUser;
     String path = "";
     SharedPreferences preferencescv;
-    ProjectDBHandler projectDBHandler;
 
 
     // adapters

@@ -20,14 +20,12 @@ import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.resumemaker.resumecvbuilder.DB.SkillsRoom.PersonalInfoRoom.PersonalInfoDao;
 import com.resumemaker.resumecvbuilder.DB.SkillsRoom.ResumeDatabase;
 import com.resumemaker.resumecvbuilder.DataModels.PersonalInfo;
-import com.resumemaker.resumecvbuilder.PersonalDetailsModel;
-import com.resumemaker.resumecvbuilder.PersonalInfoDBHandler;
 import com.resumemaker.resumecvbuilder.R;
 import com.resumemaker.resumecvbuilder.UI.Create_CV;
 import com.resumemaker.resumecvbuilder.callbackes.MyCallback;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import java.util.ArrayList;
+
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.regex.Pattern;
@@ -39,7 +37,6 @@ public class PersonalInfo_Fragment extends Fragment {
     private String[] cameraPermissions;
     private EditText contactEditText;
     SQLiteDatabase db;
-    private PersonalInfoDBHandler dbHandler;
     PersonalInfo detailsModel;
 
     PersonalInfoDao personalInfoDao;
@@ -88,8 +85,6 @@ public class PersonalInfo_Fragment extends Fragment {
         linearLayout_phone = inflate.findViewById(R.id.lyphoneno);
         linearLayout_email = inflate.findViewById(R.id.lyEmail);
         linearLayout_adress = inflate.findViewById(R.id.lyAddress);
-        PersonalInfoDBHandler personalInfoDBHandler = new PersonalInfoDBHandler(getContext());
-        dbHandler = personalInfoDBHandler;
         executor.execute(()->{
             detailsModel = personalInfoDao.getPersonalInfo();
         });
